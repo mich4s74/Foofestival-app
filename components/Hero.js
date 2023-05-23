@@ -48,8 +48,7 @@ const Hero = ({
               Welcome to <strong>FooFestival 2023!</strong>
             </h1>
             <p className="text-black-500 mt-4 mb-6">
-              Provide a network for all your needs with ease and fun using
-              LaslesVPN discover interesting features from us.
+              FooFestival 2023 blah blah blah
             </p>
 
             <LinkScroll
