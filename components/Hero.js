@@ -63,6 +63,7 @@ const Hero = ({
           <div className="flex w-full">
             <motion.div className="h-full w-full" variants={scrollAnimation}>
               <Image
+                className="rounded-3xl"
                 src="/assets/festival.jpeg"
                 alt="Foo Festival image"
                 quality={100}
