@@ -20,12 +20,12 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed">
-              Choose Your Activity
+              Check who are playing on which months
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="leading-normal w-10/12 sm:w-7/12 lg:w-6/12 mx-auto my-2 text-center">
-              Let's choose the activity that is best for you and explore it
+              Let's see which best bands for you are playing when and explore it
               happily and cheerfully.
             </motion.p>
           </ScrollAnimationWrapper>
@@ -42,34 +42,34 @@ const Events = () => {
                 }}>
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Free.png"
-                    width={145}
-                    height={165}
-                    alt="Free Plan"
+                    src="/assets/1.png"
+                    width={185}
+                    height={185}
+                    alt="event1"
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Beer Tasting
+                  Junky June
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                  Local breweries
+                  FunkFlow
                   </li>
                   <li className="relative check custom-list my-2">
-                    More than 20 different brands
+                  GreetGroot
                   </li>
                   <li className="relative check custom-list my-2">
-                    Diverse range of styles, flavors and aromas. 
+                  Sweet Dreams
                   </li>
                   <li className="relative check custom-list my-2">
-                    Food pairing tips
+                  Drools
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
                     
                   </p>
-                  <ButtonOutline>Select</ButtonOutline>
+                  <ButtonOutline>Check dates</ButtonOutline>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -85,34 +85,34 @@ const Events = () => {
                 }}>
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Standard.png"
-                    width={145}
-                    height={165}
-                    alt="Standard Plan"
+                    src="/assets/2.png"
+                    width={185}
+                    height={185}
+                    alt="event2"
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                Wellness and Relaxation{" "}
+                Julius July{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Massage stations
+                  Mimosa
                   </li>
                   <li className="relative check custom-list my-2">
-                    Mindfulness
+                  Black Pink
                   </li>
                   <li className="relative check custom-list my-2">
-                    Rejuvenating beverages
+                  Dominus
                   </li>
                   <li className="relative check custom-list my-2">
-                    Attentive personnel{" "}
+                  EyeQ{" "}
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
                     <span className="text-black-500"></span>
                   </p>
-                  <ButtonOutline>Select</ButtonOutline>
+                  <ButtonOutline>Check Dates</ButtonOutline>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -128,27 +128,27 @@ const Events = () => {
                 }}>
                 <div className="p-4 lg:p-0 mt-6 lg:mt-16">
                   <Image
-                    src="/assets/Premium.png"
-                    width={145}
-                    height={165}
-                    alt="Premium Plan"
+                    src="/assets/3.png"
+                    width={185}
+                    height={185}
+                    alt="event3"
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                Outdoor Games and Sports{" "}
+                Awe August{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Tug-of-war
+                    Toy-Box
                   </li>
                   <li className="relative check custom-list my-2">
                     Frisbee
                   </li>
                   <li className="relative check custom-list my-2">
-                    Soccer
+                    Volbeat
                   </li>
                   <li className="relative check custom-list my-2">
-                    Beach Volleyball
+                    Zididada
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
@@ -156,7 +156,7 @@ const Events = () => {
                     <span className="text-black-500"></span>
                   </p>
 
-                 <ButtonOutline>Select</ButtonOutline>
+                 <ButtonOutline>Check Dates</ButtonOutline>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
