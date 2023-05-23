@@ -32,19 +32,10 @@ const Footer = () => {
           <p className="text-black-600 mb-4 font-medium text-lg">Buy Tickets</p>
           <ul className="text-black-500 ">
             <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
-              Download{" "}
-            </li>
-            <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
               Pricing{" "}
             </li>
             <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
-              Locations{" "}
-            </li>
-            <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
-              Server{" "}
-            </li>
-            <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
-              Countries{" "}
+              Non-Profit{" "}
             </li>
             <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
               Blog{" "}
@@ -61,9 +52,6 @@ const Footer = () => {
             </li>
             <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
               FAQ{" "}
-            </li>
-            <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
-              Tutorials{" "}
             </li>
             <li className="my-2 hover:text-purple-500 cursor-pointer transition-all">
               About Us{" "}
