@@ -59,7 +59,7 @@ li.check:before {
   @apply bg-gray-500;
 }
 .slick-dots .slick-active span {
-  @apply bg-purple-500 rounded-l-full rounded-r-full w-12;
+  @apply bg-gray-500 rounded-l-full rounded-r-full w-12;
 }
 
 @tailwind utilities;
