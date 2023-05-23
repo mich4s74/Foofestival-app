@@ -20,12 +20,12 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed">
-              Choose Your Plan
+              Choose Your Activity
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="leading-normal w-10/12 sm:w-7/12 lg:w-6/12 mx-auto my-2 text-center">
-              Let's choose the package that is best for you and explore it
+              Let's choose the activity that is best for you and explore it
               happily and cheerfully.
             </motion.p>
           </ScrollAnimationWrapper>
@@ -49,25 +49,25 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Free Plan
+                  Beer Tasting
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
+                  Local breweries
                   </li>
                   <li className="relative check custom-list my-2">
-                    Encrypted Connection
+                    More than 20 different brands
                   </li>
                   <li className="relative check custom-list my-2">
-                    No Traffic Logs
+                    Diverse range of styles, flavors and aromas. 
                   </li>
                   <li className="relative check custom-list my-2">
-                    Works on All Devices
+                    Food pairing tips
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
-                    Free
+                    
                   </p>
                   <ButtonOutline>Select</ButtonOutline>
                 </div>
@@ -92,28 +92,25 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Standard Plan{" "}
+                Wellness and Relaxation{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
+                    Massage stations
                   </li>
                   <li className="relative check custom-list my-2">
-                    Encrypted Connection
+                    Mindfulness
                   </li>
                   <li className="relative check custom-list my-2">
-                    No Traffic Logs
+                    Rejuvenating beverages
                   </li>
                   <li className="relative check custom-list my-2">
-                    Works on All Devices
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Connect Anyware{" "}
+                    Attentive personnel{" "}
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
-                    $9 <span className="text-black-500">/ mo</span>
+                    <span className="text-black-500"></span>
                   </p>
                   <ButtonOutline>Select</ButtonOutline>
                 </div>
@@ -138,34 +135,28 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Premium Plan{" "}
+                Outdoor Games and Sports{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                    Unlimited Bandwitch
+                    Tug-of-war
                   </li>
                   <li className="relative check custom-list my-2">
-                    Encrypted Connection
+                    Frisbee
                   </li>
                   <li className="relative check custom-list my-2">
-                    No Traffic Logs
+                    Soccer
                   </li>
                   <li className="relative check custom-list my-2">
-                    Works on All Devices
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Connect Anyware{" "}
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Get New Features{" "}
+                    Beach Volleyball
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
-                    $12 <span className="text-black-500">/ mo</span>
+                    <span className="text-black-500"></span>
                   </p>
 
-                  <ButtonOutline>Select</ButtonOutline>
+                 <ButtonOutline>Select</ButtonOutline>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -229,13 +220,12 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal w-9/12 sm: lg:w-4/12 mx-auto">
-              Trusted by Thousands of Happy Customer{" "}
+              Hear from Our Ecstatic Festival-Goers{" "}
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="leading-normal mx-auto mb-2 mt-4 w-10/12 sm:w-7/12 lg:w-6/12">
-              These are the stories of our customers who have joined us with
-              great pleasure when using this crazy feature.
+              Discover the Unforgettable Memories and Activity Reviews from Foo Festival Attendees
             </motion.p>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="w-full flex flex-col py-12">

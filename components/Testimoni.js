@@ -10,40 +10,40 @@ import ArrowNext from "../public/assets/Icon/eva_arrow-next-fill.svg";
 const Testimoni = ({
   listTestimoni = [
     {
-      name: "iezh Robert",
-      image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
-      rating: "4.5",
+      name: "Emilie Johnson",
+      image: "/assets/people-2.png",
+      city: "Stockholm",
+      country: "Sweden",
+      rating: "5",
       testimoni:
-        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best",
+        "I recently had the pleasure of attending the extraordinary Foo Festival, and I couldn't wait to share my exhilarating experience. From the moment I stepped foot onto the festival grounds, I was immersed in a world of pure magic and excitement",
     },
     {
-      name: "iezh Robert",
-      image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
-      rating: "4.5",
+      name: "Lars Ulrich",
+      image: "/assets/people-1.png",
+      city: "Hellerup",
+      country: "Denmark",
+      rating: "4.",
       testimoni:
-        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best",
+        "The Foo Festival, aptly named for its fusion of music, art, and culture, proved to be an absolute delight for the senses. The organizers had left no stone unturned in creating an atmosphere that was both captivating and welcoming",
     },
     {
-      name: "iezh Robert",
+      name: "Iezh Robert",
       image: "/assets/people-3.png",
       city: "Warsaw",
       country: "Poland",
       rating: "4.5",
       testimoni:
-        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best",
+        "As I wandered through the vibrant pathways, I was greeted by a breathtaking display of art installations, captivating performances, and a contagious energy that filled the air",
     },
     {
-      name: "iezh Robert",
-      image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
-      rating: "4.5",
+      name: "Kurt Ravn",
+      image: "/assets/people-1.png",
+      city: "Seest",
+      country: "Denmark",
+      rating: "4",
       testimoni:
-        "Wow... I am very happy to use this VPN, it turned out to be more than my expectations and so far there have been no problems. LaslesVPN always the best",
+        "The diverse lineup of musicians was a true testament to the festival's commitment to showcasing talent from various genres",
     },
   ],
 }) => {
