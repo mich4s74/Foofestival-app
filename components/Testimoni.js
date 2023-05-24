@@ -28,15 +28,6 @@ const Testimoni = ({
         "The Foo Festival, aptly named for its fusion of music, art, and culture, proved to be an absolute delight for the senses. The organizers had left no stone unturned in creating an atmosphere that was both captivating and welcoming",
     },
     {
-      name: "Iezh Robert",
-      image: "/assets/people-3.png",
-      city: "Warsaw",
-      country: "Poland",
-      rating: "4.5",
-      testimoni:
-        "As I wandered through the vibrant pathways, I was greeted by a breathtaking display of art installations, captivating performances, and a contagious energy that filled the air",
-    },
-    {
       name: "Kurt Ravn",
       image: "/assets/people-1.png",
       city: "Seest",
@@ -44,6 +35,15 @@ const Testimoni = ({
       rating: "4",
       testimoni:
         "The diverse lineup of musicians was a true testament to the festival's commitment to showcasing talent from various genres",
+    },
+    {
+      name: "Lars Ulrich",
+      image: "/assets/people-1.png",
+      city: "Hellerup",
+      country: "Denmark",
+      rating: "4.",
+      testimoni:
+        "The Foo Festival, aptly named for its fusion of music, art, and culture, proved to be an absolute delight for the senses. The organizers had left no stone unturned in creating an atmosphere that was both captivating and welcoming",
     },
   ],
 }) => {
@@ -65,9 +65,9 @@ const Testimoni = ({
       {
         breakpoint: 770,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
