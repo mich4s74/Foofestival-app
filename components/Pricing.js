@@ -157,15 +157,29 @@ const Events = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <motion.div
-              className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2"
+              className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2 gap-12"
               variants={scrollAnimation}>
-              <div className="">Monday</div>
-              <div className="">Tuesday</div>
-              <div className="">Wednesday</div>
-              <div className="">Thursday</div>
-              <div className="">Friday</div>
-              <div className="">Saturday</div>
-              <div className="">Sunday</div>
+              <div className="">
+                <p>Monday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Tuesday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Wednesday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Thursday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Friday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Saturday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
+              <div className="">
+                <p>Sunday:</p> <p>Band 1, band 2, band 3</p>
+              </div>
             </motion.div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
