@@ -157,60 +157,29 @@ const Events = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <motion.div
-              className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2 gap-12"
+              className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2 gap-12 justify-center items-center border-2 border-gray-500 rounded-xl"
               variants={scrollAnimation}>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Monday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Tuesday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Wednesday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Thursday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Friday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Saturday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-              <div className="">
+              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Sunday:</p> <p>Band 1, band 2, band 3</p>
               </div>
-            </motion.div>
-          </ScrollAnimationWrapper>
-          <ScrollAnimationWrapper>
-            <motion.div
-              className="w-full flex justify-evenly items-center mt-4 flex-wrap lg:flex-nowrap"
-              variants={scrollAnimation}>
-              <img
-                src="/assets/Icon/amazon.png"
-                className="h-14 w-auto mt-4 lg:mt-2"
-                alt=""
-              />
-              <img
-                src="/assets/Icon/netflix.png"
-                className="h-14 w-auto mt-2 lg:mt-0"
-                alt=""
-              />
-              <img
-                src="/assets/Icon/reddit.png"
-                className="h-12 w-auto mt-2 lg:mt-0"
-                alt=""
-              />
-              <img
-                src="/assets/Icon/discord.png"
-                className="h-14 w-auto mt-2 lg:mt-0"
-                alt=""
-              />
-              <img
-                src="/assets/Icon/spotify.png"
-                className="h-12 w-auto mt-2 lg:mt-0"
-                alt=""
-              />
             </motion.div>
           </ScrollAnimationWrapper>
         </div>
