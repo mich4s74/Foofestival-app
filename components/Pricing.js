@@ -20,7 +20,7 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed">
-              Choose Your Activity
+              Upcoming events
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
@@ -53,22 +53,20 @@ const Events = () => {
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
-                  Local breweries
+                    Local breweries
                   </li>
                   <li className="relative check custom-list my-2">
                     More than 20 different brands
                   </li>
                   <li className="relative check custom-list my-2">
-                    Diverse range of styles, flavors and aromas. 
+                    Diverse range of styles, flavors and aromas.
                   </li>
                   <li className="relative check custom-list my-2">
                     Food pairing tips
                   </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
-                  <p className="text-2xl text-black-600 text-center mb-4 ">
-                    
-                  </p>
+                  <p className="text-2xl text-black-600 text-center mb-4 "></p>
                   <ButtonOutline>Select</ButtonOutline>
                 </div>
               </motion.div>
@@ -92,7 +90,7 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                Wellness and Relaxation{" "}
+                  Wellness and Relaxation{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
@@ -135,18 +133,14 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                Outdoor Games and Sports{" "}
+                  Outdoor Games and Sports{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
                   <li className="relative check custom-list my-2">
                     Tug-of-war
                   </li>
-                  <li className="relative check custom-list my-2">
-                    Frisbee
-                  </li>
-                  <li className="relative check custom-list my-2">
-                    Soccer
-                  </li>
+                  <li className="relative check custom-list my-2">Frisbee</li>
+                  <li className="relative check custom-list my-2">Soccer</li>
                   <li className="relative check custom-list my-2">
                     Beach Volleyball
                   </li>
@@ -156,7 +150,7 @@ const Events = () => {
                     <span className="text-black-500"></span>
                   </p>
 
-                 <ButtonOutline>Select</ButtonOutline>
+                  <ButtonOutline>Select</ButtonOutline>
                 </div>
               </motion.div>
             </ScrollAnimationWrapper>
@@ -178,9 +172,15 @@ const Events = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <motion.div
-              className="py-12 w-full px-8 mt-16"
+              className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2"
               variants={scrollAnimation}>
-              <Maps className="w-full h-auto" />
+              <div className="">Monday</div>
+              <div className="">Tuesday</div>
+              <div className="">Wednesday</div>
+              <div className="">Thursday</div>
+              <div className="">Friday</div>
+              <div className="">Saturday</div>
+              <div className="">Sunday</div>
             </motion.div>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
@@ -219,13 +219,14 @@ const Events = () => {
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal w-9/12 sm: lg:w-4/12 mx-auto">
+              className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-normal w-9/12 lg:w-8/12 mx-auto">
               Hear from Our Ecstatic Festival-Goers{" "}
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="leading-normal mx-auto mb-2 mt-4 w-10/12 sm:w-7/12 lg:w-6/12">
-              Discover the Unforgettable Memories and Activity Reviews from Foo Festival Attendees
+              Discover the Unforgettable Memories and Activity Reviews from Foo
+              Festival Attendees
             </motion.p>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper className="w-full flex flex-col py-12">
@@ -238,7 +239,8 @@ const Events = () => {
               <div className="absolute rounded-xl  py-8 sm:py-14 px-6 sm:px-12 lg:px-16 w-full flex flex-col sm:flex-row justify-between items-center z-10 bg-white-500">
                 <div className="flex flex-col text-left w-10/12 sm:w-7/12 lg:w-5/12 mb-6 sm:mb-0">
                   <h5 className="text-black-600 text-xl sm:text-2xl lg:text-3xl leading-relaxed font-medium">
-                    Subscribe Now to  get<br /> <b>Early Access News!</b>
+                    Subscribe Now to get
+                    <br /> <b>Early Access News!</b>
                   </h5>
                   <p>Trust us, you do not want to miss out!</p>
                 </div>

@@ -21,14 +21,13 @@ const Feature = () => {
         <ScrollAnimationWrapper className="flex w-full justify-end">
           <motion.div className="h-full w-full p-4" variants={scrollAnimation}>
             <Image
-            className="rounded-3xl"
-              src="/assets/girls_at_festival.jpeg"
+              className="rounded-3xl"
+              src="/assets/festival_concert.jpeg"
               alt="Girls at a festival"
               layout="responsive"
               quality={100}
-              height={414}
-              width={508}
-              
+              width={612}
+              height={383}
             />
           </motion.div>
         </ScrollAnimationWrapper>
@@ -37,10 +36,11 @@ const Feature = () => {
             className="flex flex-col justify-center ml-auto w-full lg:w-9/12"
             variants={scrollAnimation}>
             <h3 className="text-3xl lg:text-4xl font-medium leading-relaxed text-black-600;">
-              Why choose Foo?
+              Why attend Foo?
             </h3>
             <p className="my-2 text-black-500">
-              A festival which provides a wide range of activites and a diverse range of music.
+              A festival which provides a wide range of activites and a diverse
+              range of music.
             </p>
             <ul className="text-black-500 self-start list-inside ml-8">
               {features.map((feature) => (
