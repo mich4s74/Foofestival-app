@@ -160,7 +160,7 @@ const Events = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <div
-              className="py-12 w-full px-8 mt-16 grid grid-cols-2 gap-12
+              className="py-12 w-full px-8 mt-16 grid grid-cols-3 gap-6
               justify-center items-center border-2 border-gray-500 rounded-xl"
               variants={scrollAnimation}>
               <motion.div
@@ -219,7 +219,7 @@ const Events = () => {
                 <p>Friday:</p> <p>Band 1, band 2, band 3</p>
               </motion.div>
               <motion.div
-                className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
+                className="flex bg-cover bg-center justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
                 onClick={() => router.push("/Tickets")}
                 whileHover={{
                   scale: 1.1,
@@ -227,7 +227,21 @@ const Events = () => {
                     duration: 0.2,
                   },
                 }}>
-                <p>Saturday:</p> <p>Band 1, band 2, band 3</p>
+                <p className="absolute z-10 justify-self-center text-white-500">
+                  Saturday:
+                </p>
+                <p className="absolute z-10 pt-10 justify-self-center text-white-500">
+                  Band 1, band 2, band 3
+                </p>
+                <Image
+                  className="absolute -z-1"
+                  src="/assets/2.png"
+                  alt="event1"
+                  height={200}
+                  width={500}
+                  objectFit="cover"
+                  quality={100}
+                />
               </motion.div>
               <motion.div
                 className="flex bg-cover bg-center justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
@@ -239,7 +253,10 @@ const Events = () => {
                   },
                 }}>
                 <p className="absolute z-10 justify-self-center text-white-500">
-                  Sunday: Band 1, band 2, band 3
+                  Sunday:
+                </p>
+                <p className="absolute z-10 pt-10 justify-self-center text-white-500">
+                  Band 1, band 2, band 3
                 </p>
                 <Image
                   className="absolute -z-1"
