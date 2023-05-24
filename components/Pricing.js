@@ -159,9 +159,9 @@ const Events = () => {
             <motion.div
               className="py-12 w-full px-8 mt-16 grid lg:grid-cols-4 sm:grid-cols-2 gap-12 justify-center items-center border-2 border-gray-500 rounded-xl"
               variants={scrollAnimation}>
-              <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
+              <motion.div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Monday:</p> <p>Band 1, band 2, band 3</p>
-              </div>
+              </motion.div>
               <div className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6">
                 <p>Tuesday:</p> <p>Band 1, band 2, band 3</p>
               </div>
