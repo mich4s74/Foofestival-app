@@ -190,6 +190,7 @@ const Tickets = () => {
                     type="number"
                     value="2"
                     min="1"
+                    readOnly
                   />
                   <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
                     {" "}

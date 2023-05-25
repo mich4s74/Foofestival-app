@@ -6,25 +6,43 @@ import Instagram from "../../public/assets/Icon/instagram.svg";
 
 const Footer = () => {
   return (
-    <div className="bg-white-300 pt-44 pb-24">
+    <div className="sm:pb-130 bg-white-300 pt-44 pb-24">
       <div className="max-w-screen-xl w-full mx-auto px-6 sm:px-8 lg:px-16 grid grid-rows-6 sm:grid-rows-1 grid-flow-row sm:grid-flow-col grid-cols-3 sm:grid-cols-12 gap-4">
         <div className="row-span-2 sm:col-span-4 col-start-1 col-end-4 sm:col-end-5 flex flex-col items-start ">
-         <a href="#" title=""> <Logo className="h-16 w-auto mb-6" /></a>
+          <a href="#" title="">
+            {" "}
+            <Logo className="h-16 w-auto mb-6" />
+          </a>
           <p className="mb-4">
             <strong className="font-medium">FooFestival</strong> is a festival
             that brings people together and provides joy to the people
           </p>
           <div className="flex w-full mt-2 mb-8 -mx-2">
             <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <a href="https://www.facebook.com" target="_blank" title="FooFestival Facebook"><Facebook className="h-6 w-6" /></a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                title="FooFestival Facebook">
+                <Facebook className="h-6 w-6" />
+              </a>
             </div>
             <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <a href="https://www.twitter.com" target="_blank" title="FooFestival Twitter"><Twitter className="h-6 w-6" /></a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                title="FooFestival Twitter">
+                <Twitter className="h-6 w-6" />
+              </a>
             </div>
             <div className="mx-2 bg-white-500 rounded-full items-center justify-center flex p-2 shadow-md">
-              <a href="https://www.instagram.com" target="_blank" title="FooFestival Instagram"><Instagram className="h-6 w-6" /></a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                title="FooFestival Instagram">
+                <Instagram className="h-6 w-6" />
+              </a>
             </div>
-            </div>
+          </div>
           <p className="text-gray-400">
             ©{new Date().getFullYear()} - FooFestival
           </p>
