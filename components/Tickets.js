@@ -221,11 +221,9 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <button
-            class="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
-            onClick={() => router.push("/checkout")}>
+          <ButtonPrimary onClick={() => router.push("/checkout")}>
             Check out
-          </button>
+          </ButtonPrimary>
         </div>
       </div>
     </div>
