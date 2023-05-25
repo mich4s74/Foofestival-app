@@ -146,9 +146,9 @@ const Tickets = () => {
           <p>Add-ons</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
             <img
-              src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
+              src="./assets/tent_regular.jpeg"
               alt="product-image"
-              class="w-full rounded-lg sm:w-40"
+              class="w-full rounded-lg sm:w-32"
             />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
@@ -183,9 +183,9 @@ const Tickets = () => {
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
             <img
-              src="https://images.unsplash.com/photo-1587563871167-1ee9c731aefb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1131&q=80"
+              src="./assets/tent_vip.jpeg"
               alt="product-image"
-              class="w-full rounded-lg sm:w-40"
+              class="w-full rounded-lg sm:w-32"
             />
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
