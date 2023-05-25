@@ -52,10 +52,9 @@ const Tickets = () => {
   // Calculate the subtotal based on the quantities and prices
   const subtotal =
     regularTicketPrice * regularTicketQuantity +
-    vipTicketPrice * vipTicketQuantity +
-    (isChecked ? GreenFee : 0);
+    vipTicketPrice * vipTicketQuantity;
 
-  const total = subtotal + BookingFee;
+  const total = subtotal + BookingFee + GreenFee;
 
   return (
     <div class="h-screen bg-gray-100 pt-20 mt-24">
