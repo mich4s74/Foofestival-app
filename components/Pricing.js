@@ -165,7 +165,7 @@ const Events = () => {
               variants={scrollAnimation}>
               <motion.div
                 className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -176,7 +176,7 @@ const Events = () => {
               </motion.div>
               <motion.div
                 className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -187,7 +187,7 @@ const Events = () => {
               </motion.div>
               <motion.div
                 className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -198,7 +198,7 @@ const Events = () => {
               </motion.div>
               <motion.div
                 className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -209,7 +209,7 @@ const Events = () => {
               </motion.div>
               <motion.div
                 className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
@@ -220,7 +220,7 @@ const Events = () => {
               </motion.div>
               <motion.div
                 className="flex bg-cover bg-center justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                onClick={() => router.push("/Tickets")}
+                onClick={() => router.push("/tickets")}
                 whileHover={{
                   scale: 1.1,
                   transition: {
