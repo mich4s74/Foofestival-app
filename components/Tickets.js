@@ -47,7 +47,7 @@ const Tickets = () => {
   const regularTicketPrice = 799;
   const vipTicketPrice = 1299;
   const BookingFee = 99;
-  const GreenFee = 249;
+  const GreenFee = isChecked ? 249 : 0;
 
   // Calculate the subtotal based on the quantities and prices
   const subtotal =
