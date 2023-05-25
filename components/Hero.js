@@ -48,9 +48,14 @@ const Hero = ({
               Welcome to <strong>FooFestival 2023!</strong>
             </h1>
             <p className="text-black-500 mt-4 mb-6">
-            Welcome to Foo Festival: A Celebration of <b>Music</b>, <b>Art</b>, and <b>Unforgettable Experiences!</b> Get ready to immerse yourself in a world of unparalleled excitement and creative brilliance at Foo Festival. <br></br> <br></br>This extraordinary event is a <b>one-of-a-kind</b> celebration that brings together music, art, and a vibrant community of festival-goers <b>like you</b>.
+              Welcome to Foo Festival: A Celebration of <b>Music</b>, <b>Art</b>
+              , and <b>Unforgettable Experiences!</b> Get ready to immerse
+              yourself in a world of unparalleled excitement and creative
+              brilliance at Foo Festival. <br></br> <br></br>This extraordinary
+              event is a <b>one-of-a-kind</b> celebration that brings together
+              music, art, and a vibrant community of festival-goers{" "}
+              <b>like you</b>.
             </p>
-
             <LinkScroll
               activeClass="active"
               to="schedule"
