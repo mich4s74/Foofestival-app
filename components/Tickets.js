@@ -9,6 +9,8 @@ const Tickets = () => {
   const [regularTicketQuantity, setRegularTicketQuantity] = useState(0);
   const [vipTicketQuantity, setVipTicketQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
+  const [tentRegularQuantity, setTentRegularQuantity] = useState(0);
+  const [tentVipQuantity, setTentVipQuantity] = useState(0);
 
   useEffect(() => {
     if (regularTicketQuantity < 0) {
@@ -43,6 +45,26 @@ const Tickets = () => {
     setIsChecked(!isChecked);
   };
 
+  const handleTentRegularIncrement = () => {
+    setTentRegularQuantity(tentRegularQuantity + 1);
+  };
+
+  const handleTentRegularDecrement = () => {
+    if (tentRegularQuantity > 0) {
+      setTentRegularQuantity(tentRegularQuantity - 1);
+    }
+  };
+
+  const handleTentVipIncrement = () => {
+    setTentVipQuantity(tentVipQuantity + 1);
+  };
+
+  const handleTentVipDecrement = () => {
+    if (tentVipQuantity > 0) {
+      setTentVipQuantity(tentVipQuantity - 1);
+    }
+  };
+
   const regularTicketPrice = 799;
   const vipTicketPrice = 1299;
   const BookingFee = 99;
@@ -51,7 +73,9 @@ const Tickets = () => {
   // Calculate the subtotal based on the quantities and prices
   const subtotal =
     regularTicketPrice * regularTicketQuantity +
-    vipTicketPrice * vipTicketQuantity;
+    vipTicketPrice * vipTicketQuantity +
+    299 * tentRegularQuantity +
+    399 * tentVipQuantity;
 
   const total = subtotal + BookingFee + GreenFee;
 
@@ -159,24 +183,28 @@ const Tickets = () => {
               </div>
               <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
-                  <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                  <span
+                    class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleTentRegularDecrement}>
                     {" "}
                     -{" "}
                   </span>
                   <input
                     class="h-8 w-8 border bg-white text-center text-xs outline-none"
                     type="number"
-                    value="2"
-                    min="1"
+                    value={tentRegularQuantity}
+                    min="0"
                     readOnly
                   />
-                  <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
+                  <span
+                    class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleTentRegularIncrement}>
                     {" "}
                     +{" "}
                   </span>
                 </div>
                 <div class="flex items-center space-x-4">
-                  <p class="text-sm">Price: 299 ,-</p>
+                  <p class="text-sm">Price: {299 * tentRegularQuantity} ,-</p>
                 </div>
               </div>
             </div>
@@ -196,24 +224,26 @@ const Tickets = () => {
               </div>
               <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
-                  <span class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                    {" "}
+                  <span
+                    class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleTentVipDecrement}>
                     -{" "}
                   </span>
                   <input
                     class="h-8 w-8 border bg-white text-center text-xs outline-none"
                     type="number"
-                    value="2"
-                    min="1"
+                    value={tentVipQuantity}
+                    min="0"
                     readOnly
                   />
-                  <span class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50">
-                    {" "}
+                  <span
+                    class="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50"
+                    onClick={handleTentVipIncrement}>
                     +{" "}
                   </span>
                 </div>
                 <div class="flex items-center space-x-4">
-                  <p class="text-sm">Price: 399 ,-</p>
+                  <p class="text-sm">Price: {399 * tentVipQuantity} ,-</p>
                 </div>
               </div>
             </div>
@@ -253,6 +283,12 @@ const Tickets = () => {
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Booking Fee</p>
             <p class="text-gray-700">{BookingFee} ,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Tents</p>
+            <p class="text-gray-700">
+              {299 * tentRegularQuantity + 399 * tentVipQuantity} ,-
+            </p>
           </div>
           <div class="flex justify-between">
             <p class="text-gray-700">Green Fee</p>
