@@ -11,6 +11,8 @@ const Tickets = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [tentRegularQuantity, setTentRegularQuantity] = useState(0);
   const [tentVipQuantity, setTentVipQuantity] = useState(0);
+  const [campingIsChecked, CampingSetIsChecked] = useState(false);
+  const [campingSpots, setCampingSpots] = useState([]);
 
   useEffect(() => {
     if (regularTicketQuantity < 0) {
@@ -20,6 +22,21 @@ const Tickets = () => {
       setVipTicketQuantity(0);
     }
   }, [regularTicketQuantity, vipTicketQuantity]);
+
+  useEffect(() => {
+    fetchAvailableCampingSpots();
+  }, []);
+
+  const fetchAvailableCampingSpots = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/available-spots");
+      const data = await response.json();
+      setCampingSpots(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching camping spots:", error);
+    }
+  };
 
   const handleRegularTicketIncrement = () => {
     setRegularTicketQuantity(regularTicketQuantity + 1);
@@ -43,6 +60,10 @@ const Tickets = () => {
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+  };
+
+  const CampingHandleCheckboxChange = () => {
+    CampingSetIsChecked(!campingIsChecked);
   };
 
   const handleTentRegularIncrement = () => {
@@ -273,6 +294,32 @@ const Tickets = () => {
               </div>
             </div>
           </div>
+          <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
+            <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+              <div class="mt-5 sm:mt-0">
+                <h2 class="text-lg font-bold text-gray-900">
+                  Available Camping Spots
+                </h2>
+                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+              </div>
+              <ul className="flex flex-col">
+                {campingSpots.map((spot) => (
+                  <li key={spot.area}>
+                    Camping Spot: {spot.area}
+                    <br />
+                    Spots: {spot.spots}
+                    <br />
+                    Available: {spot.available}
+                    <input
+                      checked={campingIsChecked}
+                      onChange={CampingHandleCheckboxChange}
+                      type="checkbox"
+                      className="w-6 h-6"></input>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
@@ -289,6 +336,10 @@ const Tickets = () => {
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Green Fee</p>
             <p class="text-gray-700">{GreenFee} ,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Camping Spot</p>
+            <p class="text-gray-700">{}</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Subtotal</p>
