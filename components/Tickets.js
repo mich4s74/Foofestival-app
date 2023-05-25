@@ -56,7 +56,7 @@ const Tickets = () => {
   const total = subtotal + BookingFee + GreenFee;
 
   return (
-    <div class="h-screen bg-gray-100 pt-20 mt-24">
+    <div class="bg-gray-100 pt-20 mt-24">
       <h1 class="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
       <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div class="rounded-lg md:w-2/3">
@@ -102,12 +102,12 @@ const Tickets = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke="currentColor"
                     class="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       d="M6 18L18 6M6 6l12 12"
                     />
                   </svg>
@@ -126,7 +126,7 @@ const Tickets = () => {
                 <h2 class="text-lg font-bold text-gray-900">VIP ticket</h2>
                 <p class="mt-1 text-xs text-gray-700">Price: 1299</p>
               </div>
-              <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
+              <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
                   <span
                     class="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50"
