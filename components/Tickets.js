@@ -126,7 +126,7 @@ const Tickets = () => {
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">Regular Ticket</h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Get your ticket to FooFestival and immerse yourself in an unforgettable celebration of music, art, and culture.</p>
               </div>
               <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -167,7 +167,7 @@ const Tickets = () => {
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">VIP ticket</h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Elevate your FooFestival experience with our exclusive VIP ticket, granting you access to premium perks, exclusive areas, and unforgettable moments.</p>
               </div>
               <div class="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -209,9 +209,9 @@ const Tickets = () => {
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
-                  2 person tent (including the tent)
+                  2 person tent (includes setup)
                 </h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Experience comfort and convenience with the Foofestival 2-Person Festival Tent—a compact, lightweight shelter designed for outdoor adventures.</p>
               </div>
               <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -250,9 +250,9 @@ const Tickets = () => {
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
-                  3 person tent (including the tent)
+                  3 person tent (includes setup)
                 </h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Experience luxury and comfort at FooFestival with our exclusive 3-Person Tent. Spacious, durable, and easy to set up, it's the perfect shelter for a memorable festival experience.</p>
               </div>
               <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -289,7 +289,7 @@ const Tickets = () => {
             <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">Green Fee</h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Make a positive impact at FooFestival with our optional payable green initiative, offsetting CO2 emissions and promoting a sustainable future.</p>
               </div>
               <div class="mt-4 flex justify-between im sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                 <div class="flex items-center border-gray-100">
@@ -311,7 +311,7 @@ const Tickets = () => {
                 <h2 class="text-lg font-bold text-gray-900">
                   Available Camping Spots
                 </h2>
-                <p class="mt-1 text-xs text-gray-700">Description here...</p>
+                <p class="mt-1 text-xs text-gray-700">Choose your ideal camping spot at the festival for a comfortable and enjoyable experience.</p>
               </div>
               <ul className="flex flex-col">
                 {campingSpots.map((spot) => (
