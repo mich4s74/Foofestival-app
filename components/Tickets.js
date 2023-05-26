@@ -13,6 +13,7 @@ const Tickets = () => {
   const [tentVipQuantity, setTentVipQuantity] = useState(0);
   const [campingIsChecked, CampingSetIsChecked] = useState(false);
   const [campingSpots, setCampingSpots] = useState([]);
+  const [selectedCampingSpot, setSelectedCampingSpot] = useState("");
 
   useEffect(() => {
     if (regularTicketQuantity < 0) {
@@ -26,6 +27,10 @@ const Tickets = () => {
   useEffect(() => {
     fetchAvailableCampingSpots();
   }, []);
+
+  const handleCampingSpotSelection = (spot) => {
+    setSelectedCampingSpot(spot);
+  };
 
   const fetchAvailableCampingSpots = async () => {
     try {
@@ -311,10 +316,11 @@ const Tickets = () => {
                     <br />
                     Available: {spot.available}
                     <input
-                      checked={campingIsChecked}
-                      onChange={CampingHandleCheckboxChange}
+                      checked={selectedCampingSpot === spot.area}
+                      onChange={() => handleCampingSpotSelection(spot.area)}
                       type="checkbox"
-                      className="w-6 h-6"></input>
+                      className="w-6 h-6"
+                    />
                   </li>
                 ))}
               </ul>
@@ -339,7 +345,7 @@ const Tickets = () => {
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Camping Spot</p>
-            <p class="text-gray-700">{setCampingSpots}</p>
+            <p class="text-gray-700">{selectedCampingSpot}</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Subtotal</p>
