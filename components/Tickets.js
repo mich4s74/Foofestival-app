@@ -50,9 +50,10 @@ const Tickets = () => {
 
   // TENTS
   const totalTickets = regularTicketQuantity + vipTicketQuantity;
+  const maxTents = totalTickets; // Maximum number of tents based on total tickets
 
   const handleTentRegularIncrement = () => {
-    if (tentRegularQuantity < totalTickets) {
+    if (tentRegularQuantity + tentVipQuantity < maxTents) {
       setTentRegularQuantity(tentRegularQuantity + 1);
     }
   };
@@ -64,7 +65,7 @@ const Tickets = () => {
   };
 
   const handleTentVipIncrement = () => {
-    if (tentVipQuantity < totalTickets) {
+    if (tentRegularQuantity + tentVipQuantity < maxTents) {
       setTentVipQuantity(tentVipQuantity + 1);
     }
   };
