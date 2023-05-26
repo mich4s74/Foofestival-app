@@ -339,7 +339,7 @@ const Tickets = () => {
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Camping Spot</p>
-            <p class="text-gray-700">{}</p>
+            <p class="text-gray-700">{setCampingSpots}</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Subtotal</p>
