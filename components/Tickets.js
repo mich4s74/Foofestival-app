@@ -11,10 +11,10 @@ const Tickets = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [tentRegularQuantity, setTentRegularQuantity] = useState(0);
   const [tentVipQuantity, setTentVipQuantity] = useState(0);
-  const [campingIsChecked, CampingSetIsChecked] = useState(false);
   const [campingSpots, setCampingSpots] = useState([]);
   const [selectedCampingSpot, setSelectedCampingSpot] = useState("");
 
+  // TICKETS
   useEffect(() => {
     if (regularTicketQuantity < 0) {
       setRegularTicketQuantity(0);
@@ -23,25 +23,6 @@ const Tickets = () => {
       setVipTicketQuantity(0);
     }
   }, [regularTicketQuantity, vipTicketQuantity]);
-
-  useEffect(() => {
-    fetchAvailableCampingSpots();
-  }, []);
-
-  const handleCampingSpotSelection = (spot) => {
-    setSelectedCampingSpot(spot);
-  };
-
-  const fetchAvailableCampingSpots = async () => {
-    try {
-      const response = await fetch("http://localhost:8080/available-spots");
-      const data = await response.json();
-      setCampingSpots(data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching camping spots:", error);
-    }
-  };
 
   const handleRegularTicketIncrement = () => {
     setRegularTicketQuantity(regularTicketQuantity + 1);
@@ -67,12 +48,13 @@ const Tickets = () => {
     setIsChecked(!isChecked);
   };
 
-  const CampingHandleCheckboxChange = () => {
-    CampingSetIsChecked(!campingIsChecked);
-  };
+  // TENTS
+  const totalTickets = regularTicketQuantity + vipTicketQuantity;
 
   const handleTentRegularIncrement = () => {
-    setTentRegularQuantity(tentRegularQuantity + 1);
+    if (tentRegularQuantity < totalTickets) {
+      setTentRegularQuantity(tentRegularQuantity + 1);
+    }
   };
 
   const handleTentRegularDecrement = () => {
@@ -82,7 +64,9 @@ const Tickets = () => {
   };
 
   const handleTentVipIncrement = () => {
-    setTentVipQuantity(tentVipQuantity + 1);
+    if (tentVipQuantity < totalTickets) {
+      setTentVipQuantity(tentVipQuantity + 1);
+    }
   };
 
   const handleTentVipDecrement = () => {
@@ -91,6 +75,27 @@ const Tickets = () => {
     }
   };
 
+  // CAMMPING SPOTS
+  useEffect(() => {
+    fetchAvailableCampingSpots();
+  }, []);
+
+  const handleCampingSpotSelection = (spot) => {
+    setSelectedCampingSpot(spot);
+  };
+
+  const fetchAvailableCampingSpots = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/available-spots");
+      const data = await response.json();
+      setCampingSpots(data);
+      console.log(data);
+    } catch (error) {
+      console.error("Error fetching camping spots:", error);
+    }
+  };
+
+  // TOTAL
   const regularTicketPrice = 799;
   const vipTicketPrice = 1299;
   const BookingFee = 99;
