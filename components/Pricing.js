@@ -22,12 +22,12 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed">
-              Check who are playing on which months
+              Check out some of the top names visiting FooFestival!
             </motion.h3>
             <motion.p
               variants={scrollAnimation}
               className="leading-normal w-10/12 sm:w-7/12 lg:w-6/12 mx-auto my-2 text-center">
-              Let's see which best bands for you are playing when and explore it
+              Let's see which best bands for you are playing  and explore it
               happily and cheerfully.
             </motion.p>
           </ScrollAnimationWrapper>
@@ -51,17 +51,17 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Junky June
+                Rock bands
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">FunkFlow</li>
+                  <li className="relative check custom-list my-2">Led Zeppelin</li>
                   <li className="relative check custom-list my-2">
-                    GreetGroot
+                  The Beatles
                   </li>
                   <li className="relative check custom-list my-2">
-                    Sweet Dreams
+                  Queen
                   </li>
-                  <li className="relative check custom-list my-2">Drools</li>
+                  <li className="relative check custom-list my-2">Metallica</li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 "></p>
@@ -88,15 +88,15 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Julius July{" "}
+                  Folk{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">Mimosa</li>
+                  <li className="relative check custom-list my-2">Zboncak - Haag</li>
                   <li className="relative check custom-list my-2">
-                    Black Pink
+                  Kunde LLC
                   </li>
-                  <li className="relative check custom-list my-2">Dominus</li>
-                  <li className="relative check custom-list my-2">EyeQ </li>
+                  <li className="relative check custom-list my-2">West and Sons</li>
+                  <li className="relative check custom-list my-2">Wehner Inc </li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
@@ -125,13 +125,13 @@ const Events = () => {
                   />
                 </div>
                 <p className="text-lg text-black-600 font-medium capitalize my-2 sm:my-7">
-                  Awe August{" "}
+                  Hip Hop{" "}
                 </p>
                 <ul className="flex flex-col list-inside pl-6 xl:pl-0 items-start justify-start text-left text-black-500 flex-grow">
-                  <li className="relative check custom-list my-2">Toy-Box</li>
-                  <li className="relative check custom-list my-2">Frisbee</li>
-                  <li className="relative check custom-list my-2">Volbeat</li>
-                  <li className="relative check custom-list my-2">Zididada</li>
+                  <li className="relative check custom-list my-2">DuBuque and Sons</li>
+                  <li className="relative check custom-list my-2">Gislason, Skiles and Schneider</li>
+                  <li className="relative check custom-list my-2">Herman and Sons</li>
+                  <li className="relative check custom-list my-2">Russel Inc</li>
                 </ul>
                 <div className="flex flex-col w-full justify-center mb-8 flex-none mt-12">
                   <p className="text-2xl text-black-600 text-center mb-4 ">
