@@ -37,7 +37,7 @@ const Testimoni = ({
         "The diverse lineup of musicians was a true testament to the festival's commitment to showcasing talent from various genres",
     },
     {
-      name: "Lars Ulrich",
+      name: "Mads Larsen",
       image: "/assets/people-1.png",
       city: "Hellerup",
       country: "Denmark",
