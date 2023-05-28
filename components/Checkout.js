@@ -6,7 +6,8 @@ import { useState } from "react";
 
 const Checkout = () => {
   const router = useRouter();
-  const [name, setName] = useState("");
+  const [firstname, setFirstName] = useState("");
+  const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
@@ -22,7 +23,7 @@ const Checkout = () => {
           apikey:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5veXNxd2psaGdrY3FqYnpjcGFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUyNTc2NzIsImV4cCI6MjAwMDgzMzY3Mn0.7inyTil_iIexxv1tHjfqBzybKxspJIFqd9kvGFHWIlw",
         },
-        body: JSON.stringify({ name, email, phone }),
+        body: JSON.stringify({ firstname, lastname, email, phone }),
       }
     );
 
@@ -35,26 +36,48 @@ const Checkout = () => {
     }
   };
 
+  const handleCheckout = async (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    await handleSubmit(e);
+  };
+
   return (
     <div className="bg-gray-100 pt-20 mt-24">
       <h1 className="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div>
-          <h1>Booking Form</h1>
-          <form id="form1" onSubmit={handleSubmit}>
-            <label htmlFor="name">Name:</label>
+          <h1 className="mb-8">Your personal information:</h1>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="firstname">First name:</label>
+            <br />
             <input
               type="text"
-              id="name"
-              name="name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              id="firstname"
+              name="firstname"
+              value={firstname}
+              onChange={(e) => setFirstName(e.target.value)}
+              required
+            />
+            <br />
+            <br />
+
+            <label htmlFor="lastname">Last name:</label>
+            <br />
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
               required
             />
             <br />
             <br />
 
             <label htmlFor="email">Email:</label>
+            <br />
             <input
               type="email"
               id="email"
@@ -67,6 +90,7 @@ const Checkout = () => {
             <br />
 
             <label htmlFor="phone">Phone Number:</label>
+            <br />
             <input
               type="text"
               id="phone"
@@ -77,8 +101,46 @@ const Checkout = () => {
             />
             <br />
             <br />
-            <ButtonPrimary type="submit">Buy Now</ButtonPrimary>
+            <button type="submit" style={{ display: "none" }}></button>
           </form>
+        </div>
+        <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Booking Fee</p>
+            <p class="text-gray-700"> ,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Tents</p>
+            <p class="text-gray-700">,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Green Fee</p>
+            <p class="text-gray-700"> ,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Camping Spot</p>
+            <p class="text-gray-700"></p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Subtotal</p>
+            <p class="text-gray-700"> ,-</p>
+          </div>
+          <hr class="my-4" />
+          <div class="flex justify-between">
+            <p class="text-lg font-bold">Total</p>
+            <div class="">
+              <p class="mb-1 text-lg font-bold"> ,-</p>
+              <p class="text-sm text-gray-700">including VAT</p>
+            </div>
+          </div>
+          <div className="m-8">
+            <button
+              className="py-3 lg:py-4 px-12 lg:px-16 text-white-500 font-semibold rounded-lg bg-purple-500 hover:shadow-purple-md transition-all outline-none"
+              type="button"
+              onClick={handleCheckout}>
+              Check out
+            </button>
+          </div>
         </div>
       </div>
     </div>
