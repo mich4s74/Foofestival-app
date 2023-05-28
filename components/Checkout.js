@@ -4,7 +4,7 @@ import ButtonOutline from "./misc/ButtonOutline.";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-const Tickets = () => {
+const Checkout = () => {
   const router = useRouter();
   const [regularTicketQuantity, setRegularTicketQuantity] = useState(0);
   const [vipTicketQuantity, setVipTicketQuantity] = useState(0);
@@ -388,8 +388,10 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <div className="m-8" onClick={() => router.push("/Checkout")}>
-            <ButtonPrimary>Check out</ButtonPrimary>
+          <div className="m-8">
+            <ButtonPrimary onClick={() => router.push("/")}>
+              Buy Now
+            </ButtonPrimary>
           </div>
         </div>
       </div>
@@ -397,4 +399,4 @@ const Tickets = () => {
   );
 };
 
-export default Tickets;
+export default Checkout;
