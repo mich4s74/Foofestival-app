@@ -388,7 +388,7 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <div className="m-8" onClick={() => router.push("/Checkout")}>
+          <div className="m-8" onClick={() => router.push("/checkout")}>
             <ButtonPrimary>Check out</ButtonPrimary>
           </div>
         </div>
