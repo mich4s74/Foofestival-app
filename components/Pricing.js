@@ -192,7 +192,7 @@ const Events = () => {
             {scheduleData && scheduleData.Jotunheim ? (
               <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
                 {scheduleData.Jotunheim.mon.map((item, index) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
                     onClick={() => router.push("/tickets")}
@@ -205,7 +205,7 @@ const Events = () => {
                     <p>Start Time: {item.start}</p>
                     <p>End Time: {item.end}</p>
                     <p>Stage: {item.stage}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             ) : (
