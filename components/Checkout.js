@@ -11,6 +11,7 @@ const Checkout = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
 
+  console.log(router.query);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -43,66 +44,87 @@ const Checkout = () => {
     await handleSubmit(e);
   };
 
+  // How many tickets
+
+  const { regularTicketQuantity, vipTicketQuantity } = router.query;
+
+  // Convert the retrieved values to numbers if necessary
+  const regularTickets = parseInt(regularTicketQuantity) || 0;
+  const vipTickets = parseInt(vipTicketQuantity) || 0;
+
+  // Perform any calculations or operations using the ticket quantities
+  const totalTickets = regularTickets + vipTickets;
+
   return (
     <div className="bg-gray-100 pt-20 mt-24">
       <h1 className="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div>
           <h1 className="mb-8">Your personal information:</h1>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="firstname">First name:</label>
-            <br />
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              value={firstname}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="lastname">Last name:</label>
-            <br />
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              value={lastname}
-              onChange={(e) => setLastname(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="email">Email:</label>
-            <br />
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-
-            <label htmlFor="phone">Phone Number:</label>
-            <br />
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-              required
-            />
-            <br />
-            <br />
-            <button type="submit" style={{ display: "none" }}></button>
-          </form>
+          {[...Array(totalTickets)].map((item) => (
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label htmlFor="firstname" className="block mb-1 font-bold">
+                  First name:
+                </label>
+                <input
+                  type="text"
+                  id="firstname"
+                  name="firstname"
+                  value={firstname}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="lastname" className="block mb-1 font-bold">
+                  Last name:
+                </label>
+                <input
+                  type="text"
+                  id="lastname"
+                  name="lastname"
+                  value={lastname}
+                  onChange={(e) => setLastname(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="email" className="block mb-1 font-bold">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="phone" className="block mb-1 font-bold">
+                  Phone Number:
+                </label>
+                <input
+                  type="text"
+                  id="phone"
+                  name="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
+                />
+              </div>
+              <button
+                type="submit"
+                style={{ display: "none" }}
+                className="hidden"></button>
+            </form>
+          ))}
         </div>
         <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
           <div class="mb-2 flex justify-between">

@@ -326,7 +326,7 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <div class="sm:ml-4 sm:flex sm:w-full sm:justify-between">
+            <div class="sm:ml-4 sm:w-full sm:justify-between">
               <div class="mt-5 sm:mt-0">
                 <h2 class="text-lg font-bold text-gray-900">
                   Available Camping Spots
@@ -336,7 +336,7 @@ const Tickets = () => {
                   comfortable and enjoyable experience.
                 </p>
               </div>
-              <ul className="flex flex-col">
+              <ul className="mt-6 flex mr-12">
                 {campingSpots.map((spot) => (
                   <li key={spot.area}>
                     Camping Spot: {spot.area}
@@ -388,7 +388,13 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <div className="m-8" onClick={() => router.push("/checkout")}>
+          <div
+            className="m-8"
+            onClick={() =>
+              router.push(
+                `/checkout?regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}`
+              )
+            }>
             <ButtonPrimary>Check out</ButtonPrimary>
           </div>
         </div>
