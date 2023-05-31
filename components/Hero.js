@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import { Link as LinkScroll } from "react-scroll";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
+import ButtonOutline from "./misc/ButtonOutline.";
 
 const Header = () => {
   const [activeLink, setActiveLink] = useState(null);
@@ -56,14 +58,19 @@ const Hero = ({
               music, art, and a vibrant community of festival-goers{" "}
               <b>like you</b>.
             </p>
-            <LinkScroll
-              activeClass="active"
-              to="schedule"
-              spy={true}
-              smooth={true}
-              duration={1000}>
-              <ButtonPrimary>Buy Tickets</ButtonPrimary>
-            </LinkScroll>
+            <div className="flex gap-6">
+              <LinkScroll
+                activeClass="active"
+                to="schedule"
+                spy={true}
+                smooth={true}
+                duration={1000}>
+                <ButtonPrimary>See Schedule</ButtonPrimary>
+              </LinkScroll>
+              <div className="font-medium flex items-center">
+                <ButtonPrimary>Buy Tickets</ButtonPrimary>
+              </div>
+            </div>
           </div>
           <div className="flex w-full">
             <motion.div className="h-full w-full" variants={scrollAnimation}>

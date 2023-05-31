@@ -6,12 +6,15 @@ import { useState } from "react";
 
 const Checkout = () => {
   const router = useRouter();
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [formData, setFormData] = useState([]);
 
-  console.log(router.query);
+  const handleInputChange = (e, index) => {
+    const { name, value } = e.target;
+    const updatedFormData = [...formData];
+    updatedFormData[index] = { ...updatedFormData[index], [name]: value };
+    setFormData(updatedFormData);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,7 +27,7 @@ const Checkout = () => {
           apikey:
             "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5veXNxd2psaGdrY3FqYnpjcGFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUyNTc2NzIsImV4cCI6MjAwMDgzMzY3Mn0.7inyTil_iIexxv1tHjfqBzybKxspJIFqd9kvGFHWIlw",
         },
-        body: JSON.stringify({ firstname, lastname, email, phone }),
+        body: JSON.stringify(formData),
       }
     );
 
@@ -46,8 +49,13 @@ const Checkout = () => {
 
   // How many tickets and tents
 
-  const { regularTicketQuantity, vipTicketQuantity } = router.query;
-  const { tentRegularQuantity, tentVipQuantity } = router.query;
+  const {
+    regularTicketQuantity,
+    vipTicketQuantity,
+    tentRegularQuantity,
+    tentVipQuantity,
+    selectedCampingSpot,
+  } = router.query;
 
   // Convert the retrieved values to numbers if necessary
   const regularTickets = parseInt(regularTicketQuantity) || 0;
@@ -69,24 +77,26 @@ const Checkout = () => {
     299 * tentRegularQuantity +
     399 * tentVipQuantity;
 
+  const total = subtotal + BookingFee + GreenFee;
+
   return (
     <div className="bg-gray-100 pt-20 mt-24">
       <h1 className="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div>
           <h1 className="mb-8">Your personal information:</h1>
-          {[...Array(totalTickets)].map((item) => (
-            <form onSubmit={handleSubmit}>
+          {[...Array(totalTickets)].map((item, index) => (
+            <form key={index} onSubmit={handleSubmit}>
               <div className="mb-4">
                 <label htmlFor="firstname" className="block mb-1 font-bold">
                   First name:
                 </label>
                 <input
                   type="text"
-                  id="firstname"
+                  id={`firstname${index}`}
                   name="firstname"
-                  value={firstname}
-                  onChange={(e) => setFirstName(e.target.value)}
+                  value={formData[index]?.firstname || ""}
+                  onChange={(e) => handleInputChange(e, index)}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
                 />
@@ -97,10 +107,10 @@ const Checkout = () => {
                 </label>
                 <input
                   type="text"
-                  id="lastname"
+                  id={`lastname${index}`}
                   name="lastname"
-                  value={lastname}
-                  onChange={(e) => setLastname(e.target.value)}
+                  value={formData[index]?.lastname || ""}
+                  onChange={(e) => handleInputChange(e, index)}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
                 />
@@ -111,10 +121,10 @@ const Checkout = () => {
                 </label>
                 <input
                   type="email"
-                  id="email"
+                  id={`email${index}`}
                   name="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData[index]?.email || ""}
+                  onChange={(e) => handleInputChange(e, index)}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
                 />
@@ -125,10 +135,10 @@ const Checkout = () => {
                 </label>
                 <input
                   type="text"
-                  id="phone"
+                  id={`phone${index}`}
                   name="phone"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={formData[index]?.phone || ""}
+                  onChange={(e) => handleInputChange(e, index)}
                   required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
                 />
@@ -153,11 +163,11 @@ const Checkout = () => {
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Green Fee</p>
-            <p class="text-gray-700"> ,-</p>
+            <p class="text-gray-700">{GreenFee} ,-</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Camping Spot</p>
-            <p class="text-gray-700"></p>
+            <p class="text-gray-700">{selectedCampingSpot}</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Subtotal</p>
@@ -167,7 +177,7 @@ const Checkout = () => {
           <div class="flex justify-between">
             <p class="text-lg font-bold">Total</p>
             <div class="">
-              <p class="mb-1 text-lg font-bold"> ,-</p>
+              <p class="mb-1 text-lg font-bold">{total} ,-</p>
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
