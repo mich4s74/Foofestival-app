@@ -84,13 +84,14 @@ const Checkout = () => {
       <h1 className="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
       <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div>
-          <h1 className="mb-8">Your personal information:</h1>
+          <h1 className="mb-2 text-xl font-bold">Your personal information:</h1>
           {[...Array(totalTickets)].map((item, index) => (
-            <form key={index} onSubmit={handleSubmit}>
+            <form
+              className="mt-6 rounded-lg border bg-white p-6 shadow-md"
+              key={index}
+              onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label htmlFor="firstname" className="block mb-1 font-bold">
-                  First name:
-                </label>
+                <label htmlFor="firstname">First name:</label>
                 <input
                   type="text"
                   id={`firstname${index}`}
@@ -102,9 +103,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="lastname" className="block mb-1 font-bold">
-                  Last name:
-                </label>
+                <label htmlFor="lastname">Last name:</label>
                 <input
                   type="text"
                   id={`lastname${index}`}
@@ -116,9 +115,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="email" className="block mb-1 font-bold">
-                  Email:
-                </label>
+                <label htmlFor="email">Email:</label>
                 <input
                   type="email"
                   id={`email${index}`}
@@ -130,9 +127,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="mb-4">
-                <label htmlFor="phone" className="block mb-1 font-bold">
-                  Phone Number:
-                </label>
+                <label htmlFor="phone">Phone Number:</label>
                 <input
                   type="text"
                   id={`phone${index}`}
