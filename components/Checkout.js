@@ -44,9 +44,10 @@ const Checkout = () => {
     await handleSubmit(e);
   };
 
-  // How many tickets
+  // How many tickets and tents
 
   const { regularTicketQuantity, vipTicketQuantity } = router.query;
+  const { tentRegularQuantity, tentVipQuantity } = router.query;
 
   // Convert the retrieved values to numbers if necessary
   const regularTickets = parseInt(regularTicketQuantity) || 0;
@@ -54,6 +55,19 @@ const Checkout = () => {
 
   // Perform any calculations or operations using the ticket quantities
   const totalTickets = regularTickets + vipTickets;
+
+  // TOTAL
+  const regularTicketPrice = 799;
+  const vipTicketPrice = 1299;
+  const BookingFee = 99;
+  const GreenFee = 249;
+
+  // Calculate the subtotal based on the quantities and prices
+  const subtotal =
+    regularTicketPrice * regularTicketQuantity +
+    vipTicketPrice * vipTicketQuantity +
+    299 * tentRegularQuantity +
+    399 * tentVipQuantity;
 
   return (
     <div className="bg-gray-100 pt-20 mt-24">
@@ -129,11 +143,13 @@ const Checkout = () => {
         <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Booking Fee</p>
-            <p class="text-gray-700"> ,-</p>
+            <p class="text-gray-700"> {BookingFee},-</p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Tents</p>
-            <p class="text-gray-700">,-</p>
+            <p class="text-gray-700">
+              {299 * tentRegularQuantity + 399 * tentVipQuantity} ,-
+            </p>
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Green Fee</p>
@@ -145,7 +161,7 @@ const Checkout = () => {
           </div>
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Subtotal</p>
-            <p class="text-gray-700"> ,-</p>
+            <p class="text-gray-700">{subtotal},-</p>
           </div>
           <hr class="my-4" />
           <div class="flex justify-between">

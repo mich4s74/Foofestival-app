@@ -392,7 +392,7 @@ const Tickets = () => {
             className="m-8"
             onClick={() =>
               router.push(
-                `/checkout?regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}`
+                `/checkout?regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}&tentRegularQuantity=${tentRegularQuantity}&tentVipQuantity=${tentVipQuantity}&BookingFee=${BookingFee}`
               )
             }>
             <ButtonPrimary>Check out</ButtonPrimary>
