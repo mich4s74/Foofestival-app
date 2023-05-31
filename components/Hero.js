@@ -27,12 +27,12 @@ const Hero = ({
     },
     {
       name: "Camping Spots",
-      number: "20",
+      number: "5",
       icon: "/assets/Icon/gridicons_location.svg",
     },
     {
       name: "Bands",
-      number: "30",
+      number: "100",
       icon: "/assets/Icon/guitar-pick-icon.svg",
     },
   ],
