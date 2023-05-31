@@ -113,7 +113,7 @@ const Tickets = () => {
 
   return (
     <div class="bg-gray-100 pt-20 mt-24">
-      <h1 class="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
+      <h1 class="mb-10 text-center text-2xl font-bold">Buy Tickets & More</h1>
       <div class="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
         <div class="rounded-lg md:w-2/3">
           <p>Tickets</p>
@@ -336,14 +336,20 @@ const Tickets = () => {
                   comfortable and enjoyable experience.
                 </p>
               </div>
-              <ul className="mt-6 flex mr-12">
+              <h4
+                className="font-bold mb-4 mt-4
+                    ">
+                Camping Spot:
+              </h4>{" "}
+              <ul className="mt-6 flex mr-12 gap-4">
                 {campingSpots.map((spot) => (
                   <li key={spot.area}>
-                    Camping Spot: {spot.area}
+                    {spot.area}
                     <br />
                     Spots: {spot.spots}
                     <br />
                     Available: {spot.available}
+                    <br />
                     <input
                       checked={selectedCampingSpot === spot.area}
                       onChange={() => handleCampingSpotSelection(spot.area)}
@@ -358,10 +364,13 @@ const Tickets = () => {
         </div>
 
         <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
-          <div class="mb-2 flex justify-between">
-            <p class="text-gray-700">Booking Fee</p>
-            <p class="text-gray-700">{BookingFee} ,-</p>
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Tickets</p>
+            <p className="text-gray-700">
+              {799 * regularTicketQuantity + 1299 * vipTicketQuantity} ,-
+            </p>
           </div>
+
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Tents</p>
             <p class="text-gray-700">
@@ -369,16 +378,21 @@ const Tickets = () => {
             </p>
           </div>
           <div class="mb-2 flex justify-between">
-            <p class="text-gray-700">Green Fee</p>
-            <p class="text-gray-700">{GreenFee} ,-</p>
+            <p class="text-gray-700">Subtotal</p>
+            <p class="text-gray-700">{subtotal} ,-</p>
           </div>
+          <hr class="my-4" />
           <div class="mb-2 flex justify-between">
             <p class="text-gray-700">Camping Spot</p>
             <p class="text-gray-700">{selectedCampingSpot}</p>
           </div>
           <div class="mb-2 flex justify-between">
-            <p class="text-gray-700">Subtotal</p>
-            <p class="text-gray-700">{subtotal} ,-</p>
+            <p class="text-gray-700">Green Fee</p>
+            <p class="text-gray-700">{GreenFee} ,-</p>
+          </div>
+          <div class="mb-2 flex justify-between">
+            <p class="text-gray-700">Booking Fee</p>
+            <p class="text-gray-700">{BookingFee} ,-</p>
           </div>
           <hr class="my-4" />
           <div class="flex justify-between">
