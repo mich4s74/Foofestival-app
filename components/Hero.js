@@ -68,7 +68,7 @@ const Hero = ({
                 <ButtonPrimary>See Schedule</ButtonPrimary>
               </LinkScroll>
               <div className="font-medium flex items-center">
-                <ButtonPrimary>Buy Tickets</ButtonPrimary>
+                <ButtonPrimary><a href="/tickets">Buy Tickets</a></ButtonPrimary>
               </div>
             </div>
           </div>
