@@ -189,27 +189,37 @@ const Events = () => {
             </motion.p>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
+            <motion.h3
+              variants={scrollAnimation}
+              className="text-2xl mt-24 sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
+              Jotunheim!{" "}
+            </motion.h3>
             {scheduleData && scheduleData.Jotunheim ? (
               <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
-                {scheduleData.Jotunheim.mon.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                    onClick={() => router.push("/tickets")}
-                    whileHover={{
-                      scale: 1.1,
-                      transition: {
-                        duration: 0.2,
-                      },
-                    }}>
-                    <p>Start Time: {item.start}</p>
-                    <p>End Time: {item.end}</p>
-                    <p>Stage: {item.stage}</p>
-                  </motion.div>
+                {Object.keys(scheduleData.Jotunheim).map((day) => (
+                  <div key={day}>
+                    <h2 className="text-xl font-bold mb-4">{day}</h2>
+                    {scheduleData.Jotunheim[day].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
+                        onClick={() => router.push("/tickets")}
+                        whileHover={{
+                          scale: 1.1,
+                          transition: {
+                            duration: 0.2,
+                          },
+                        }}>
+                        <p>Start Time: {item.start}</p>
+                        <p>End Time: {item.end}</p>
+                        <p>Act: {item.act}</p>
+                      </motion.div>
+                    ))}
+                  </div>
                 ))}
               </div>
             ) : (
-              <p>Loading schedule data... PLEASE</p>
+              <p>Loading schedule data...</p>
             )}
           </ScrollAnimationWrapper>
         </div>
