@@ -82,7 +82,7 @@ const Checkout = () => {
   return (
     <div className="bg-gray-100 pt-20 mt-24">
       <h1 className="mb-10 text-center text-2xl font-bold">Buy Tickets</h1>
-      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0">
+      <div className="mx-auto max-w-5xl justify-center px-6 md:flex md:space-x-6 xl:px-0 flex flex-row">
         <div>
           <h1 className="mb-2 text-xl font-bold">Your personal information:</h1>
           {[...Array(totalTickets)].map((item, index) => (
@@ -94,6 +94,7 @@ const Checkout = () => {
                 <label htmlFor="firstname">First name:</label>
                 <input
                   type="text"
+                  placeholder="John"
                   id={`firstname${index}`}
                   name="firstname"
                   value={formData[index]?.firstname || ""}
@@ -106,6 +107,7 @@ const Checkout = () => {
                 <label htmlFor="lastname">Last name:</label>
                 <input
                   type="text"
+                  placeholder="Johnson"
                   id={`lastname${index}`}
                   name="lastname"
                   value={formData[index]?.lastname || ""}
@@ -118,6 +120,7 @@ const Checkout = () => {
                 <label htmlFor="email">Email:</label>
                 <input
                   type="email"
+                  placeholder="Johnjohnson@gmail.com"
                   id={`email${index}`}
                   name="email"
                   value={formData[index]?.email || ""}
@@ -130,6 +133,7 @@ const Checkout = () => {
                 <label htmlFor="phone">Phone Number:</label>
                 <input
                   type="text"
+                  placeholder="12345678"
                   id={`phone${index}`}
                   name="phone"
                   value={formData[index]?.phone || ""}
