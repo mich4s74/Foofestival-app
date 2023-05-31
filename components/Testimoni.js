@@ -41,7 +41,7 @@ const Testimoni = ({
       image: "/assets/people-1.png",
       city: "Hellerup",
       country: "Denmark",
-      rating: "4.",
+      rating: "4",
       testimoni:
         "The Foo Festival, aptly named for its fusion of music, art, and culture, proved to be an absolute delight for the senses. The organizers had left no stone unturned in creating an atmosphere that was both captivating and welcoming",
     },
