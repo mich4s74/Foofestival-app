@@ -33,7 +33,7 @@ const Feature = () => {
         </ScrollAnimationWrapper>
         <ScrollAnimationWrapper>
           <motion.div
-            className="flex flex-col justify-center ml-auto w-full lg:w-9/12"
+            className="flex flex-col justify-center ml-auto w-full lg:w-9/12 my-8"
             variants={scrollAnimation}>
             <h3 className="text-3xl lg:text-4xl font-medium leading-relaxed text-black-600;">
               Why attend Foo?
