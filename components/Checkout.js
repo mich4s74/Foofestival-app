@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const Checkout = () => {
   const router = useRouter();
+  const { reservationId } = router.query;
+  console.log(reservationId);
   const [formData, setFormData] = useState([]);
 
   const handleInputChange = (e, index) => {
@@ -15,37 +17,44 @@ const Checkout = () => {
     setFormData(updatedFormData);
   };
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(
+    await fetch(
       "https://noysqwjlhgkcqjbzcpab.supabase.co/rest/v1/FooFestivalForm",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apikey:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5veXNxd2psaGdrY3FqYnpjcGFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUyNTc2NzIsImV4cCI6MjAwMDgzMzY3Mn0.7inyTil_iIexxv1tHjfqBzybKxspJIFqd9kvGFHWIlw",
+          apikey: process.env.NEXT_PUBLIC_SUPABASE_API,
         },
         body: JSON.stringify(formData),
       }
     );
 
     // Handle the response data or perform any necessary actions
-    if (response.ok) {
-      console.log("Form submitted successfully");
-      router.push("/Thank_you"); // Redirect to the thank you page
-    } else {
-      console.error("Error submitting the form");
-    }
-  };
+    fetch("https://forest-foil-wasp.glitch.me/fullfill-reservation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: reservationId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === "Reservation completed") {
+          alert(data.message);
 
-  const handleCheckout = async (e) => {
-    if (e) {
-      e.preventDefault();
-    }
-    await handleSubmit(e);
-  };
+          router.push("/");
+        } else {
+          alert(data.message);
+        }
+
+        console.log(data);
+      });
+  }
 
   // How many tickets and tents
 
@@ -80,17 +89,16 @@ const Checkout = () => {
   const total = subtotal + BookingFee + GreenFee;
 
   return (
-    <div className="bg-gray-100 pt-20 mt-24">
+    <div className="bg-gray-100 pt-20 mt-24 pb-20">
       <h1 className="mb-10 text-center text-2xl font-bold">
         Fill in your information
       </h1>
-      <div className="mx-auto max-w-5xl justify-center px-6 md:space-x-6 xl:px-0">
+      <form
+        className="mx-auto max-w-5xl justify-center px-6 md:space-x-6 xl:px-0"
+        onSubmit={(e) => handleSubmit(e)}>
         <div className="grid lg:grid-cols-3 auto-cols-max gap-6">
           {[...Array(totalTickets)].map((item, index) => (
-            <form
-              className="mb-6 rounded-lg bg-white p-6 shadow-md"
-              key={index}
-              onSubmit={handleSubmit}>
+            <div className="mb-6 rounded-lg bg-white p-6 shadow-md" key={index}>
               <h3 className="text-xl font-bold mb-2">
                 Ticket Owner {index + 1}
               </h3>
@@ -142,58 +150,59 @@ const Checkout = () => {
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-500"
                 />
               </div>
-              <button
-                type="submit"
-                style={{ display: "none" }}
-                className="hidden"></button>
-            </form>
+            </div>
           ))}
         </div>
-      </div>
-      <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:w-2/3 m-auto pb-10">
-        <div className="mb-2 flex justify-between">
-          <p className="text-gray-700">Tickets</p>
-          <p className="text-gray-700">
-            {" "}
-            {regularTicketPrice + vipTicketPrice},-
-          </p>
-        </div>
+        <div className="mt-6 m-auto h-full rounded-lg bg-white p-6 shadow-md pb-10">
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Tickets</p>
+            <p className="text-gray-700">
+              {regularTicketQuantity * regularTicketPrice +
+                vipTicketQuantity * vipTicketPrice}
+              ,-
+            </p>
+          </div>
 
-        <div class="mb-2 flex justify-between">
-          <p class="text-gray-700">Tents</p>
-          <p class="text-gray-700">
-            {299 * tentRegularQuantity + 399 * tentVipQuantity} ,-
-          </p>
-        </div>
-        <div class="mb-2 flex justify-between">
-          <p class="text-gray-700">Subtotal</p>
-          <p class="text-gray-700">{subtotal} ,-</p>
-        </div>
-        <hr class="my-4" />
-        <div class="mb-2 flex justify-between">
-          <p class="text-gray-700">Camping Spot</p>
-          <p class="text-gray-700">{selectedCampingSpot}</p>
-        </div>
-        <div class="mb-2 flex justify-between">
-          <p class="text-gray-700">Green Fee</p>
-          <p class="text-gray-700">{GreenFee} ,-</p>
-        </div>
-        <div class="mb-2 flex justify-between">
-          <p class="text-gray-700">Booking Fee</p>
-          <p class="text-gray-700">{BookingFee} ,-</p>
-        </div>
-        <hr class="my-4" />
-        <div class="flex justify-between">
-          <p class="text-lg font-bold">Total</p>
-          <div class="">
-            <p class="mb-1 text-lg font-bold">{total} ,-</p>
-            <p class="text-sm text-gray-700">including VAT</p>
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Tents</p>
+            <p className="text-gray-700">
+              {tentRegularQuantity * 299 + tentVipQuantity * 399},-
+            </p>
+          </div>
+
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Subtotal</p>
+            <p className="text-gray-700">{subtotal},-</p>
+          </div>
+          <hr className="mb-4 mt-4" />
+
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Booking Fee</p>
+            <p className="text-gray-700">{BookingFee},-</p>
+          </div>
+
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Green Fee</p>
+            <p className="text-gray-700">{GreenFee},-</p>
+          </div>
+
+          <div className="mb-2 flex justify-between">
+            <p className="text-gray-700">Camping Spot</p>
+            <p className="text-gray-700">{selectedCampingSpot},-</p>
+          </div>
+
+          <hr className="mb-4 mt-4" />
+
+          <div className="mb-2 flex justify-between">
+            <p className="font-bold">Total</p>
+            <p className="font-bold">{total},-</p>
           </div>
         </div>
-        <div className="mt-4">
-          <ButtonPrimary onClick={handleCheckout}>Buy Now</ButtonPrimary>
+
+        <div className="flex justify-center mt-6">
+          <ButtonPrimary type="submit">Complete Reservation</ButtonPrimary>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

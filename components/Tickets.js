@@ -6,13 +6,13 @@ import { useState, useEffect } from "react";
 
 const Tickets = () => {
   const router = useRouter();
-  const [regularTicketQuantity, setRegularTicketQuantity] = useState(0);
+  const [regularTicketQuantity, setRegularTicketQuantity] = useState(1);
   const [vipTicketQuantity, setVipTicketQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const [tentRegularQuantity, setTentRegularQuantity] = useState(0);
   const [tentVipQuantity, setTentVipQuantity] = useState(0);
   const [campingSpots, setCampingSpots] = useState([]);
-  const [selectedCampingSpot, setSelectedCampingSpot] = useState("");
+  const [selectedCampingSpot, setSelectedCampingSpot] = useState("Svartheim");
 
   // TICKETS
   useEffect(() => {
@@ -87,10 +87,11 @@ const Tickets = () => {
 
   const fetchAvailableCampingSpots = async () => {
     try {
-      const response = await fetch("http://localhost:8080/available-spots");
+      const response = await fetch(
+        "https://forest-foil-wasp.glitch.me/available-spots"
+      );
       const data = await response.json();
       setCampingSpots(data);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching camping spots:", error);
     }
@@ -111,6 +112,52 @@ const Tickets = () => {
 
   const total = subtotal + BookingFee + GreenFee;
 
+  // Reserve spot and amount of tickets
+  const reserveSpot = async () => {
+    const url = "https://forest-foil-wasp.glitch.me/reserve-spot";
+    const data = {
+      area: String(selectedCampingSpot),
+      amount: Number(totalTickets), // Example value for the amount of total tickets
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const reservationId = await response.json(); // Parse the response JSON
+        console.log("Spot reservation successful.");
+        console.log("Reservation ID:", reservationId);
+
+        return reservationId.id; // Return the reservationId value
+      } else {
+        console.error("Spot reservation failed.");
+        throw new Error("Spot reservation failed.");
+      }
+    } catch (error) {
+      console.error("Spot reservation failed.", error);
+      throw error;
+    }
+  };
+  // Call the reserveSpot function when needed, for example, in an event handler
+
+  const handleCheckout = async () => {
+    try {
+      const reservationId = await reserveSpot(); // Call the reserveSpot function and await the result
+      router.push(
+        `/checkout?reservationId=${reservationId}&regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}&tentRegularQuantity=${tentRegularQuantity}&tentVipQuantity=${tentVipQuantity}&BookingFee=${BookingFee}&selectedCampingSpot=${selectedCampingSpot}&GreenFee=${GreenFee}`
+      );
+    } catch (error) {
+      console.error("Spot reservation failed.", error);
+      // Handle the error or display an error message
+    }
+  };
+
   return (
     <div class="bg-gray-100 pt-20 mt-24">
       <h1 class="mb-10 text-center text-2xl font-bold">Buy Tickets & More</h1>
@@ -118,8 +165,8 @@ const Tickets = () => {
         <div class="rounded-lg md:w-2/3">
           <p>Tickets</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
-              src="./assets/icon/regular_ticket.png"
+            <Image
+              src="./assets/regular_ticket.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
             />
@@ -162,8 +209,8 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
-              src="./assets/icon/vip_ticket.png"
+            <Image
+              src="./assets/vip_ticket.png"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
             />
@@ -208,7 +255,7 @@ const Tickets = () => {
           </div>
           <p>Add-ons</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/tent_regular.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
@@ -253,7 +300,7 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/tent_vip.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
@@ -297,7 +344,7 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/icon/green-love.png"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
@@ -342,7 +389,7 @@ const Tickets = () => {
                 Camping Spot:
               </h4>{" "}
               <ul className="mt-6 flex mr-12 gap-4">
-                {campingSpots.map((spot) => (
+                {campingSpots?.map((spot) => (
                   <li key={spot.area}>
                     {spot.area}
                     <br />
@@ -354,6 +401,7 @@ const Tickets = () => {
                       checked={selectedCampingSpot === spot.area}
                       onChange={() => handleCampingSpotSelection(spot.area)}
                       type="checkbox"
+                      required
                       className="w-6 h-6"
                     />
                   </li>
@@ -402,13 +450,7 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <div
-            className="m-8"
-            onClick={() =>
-              router.push(
-                `/checkout?regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}&tentRegularQuantity=${tentRegularQuantity}&tentVipQuantity=${tentVipQuantity}&BookingFee=${BookingFee}&selectedCampingSpot=${selectedCampingSpot}&GreenFee=${GreenFee}`
-              )
-            }>
+          <div className="m-8" onClick={handleCheckout}>
             <ButtonPrimary>Check out</ButtonPrimary>
           </div>
         </div>

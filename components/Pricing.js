@@ -15,11 +15,14 @@ const Events = () => {
   const router = useRouter();
 
   const [scheduleData, setScheduleData] = useState({});
+  const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
     const fetchScheduleData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/schedule");
+        const response = await fetch(
+          "https://forest-foil-wasp.glitch.me/schedule"
+        );
         const data = await response.json();
         console.log(data);
         setScheduleData(data);
@@ -30,6 +33,10 @@ const Events = () => {
 
     fetchScheduleData();
   }, []);
+
+  const handleTabSelect = (index) => {
+    setActiveTab(index);
+  };
 
   return (
     <div
@@ -191,12 +198,16 @@ const Events = () => {
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
             <div>
-              <Tabs>
+              <Tabs selectedIndex={activeTab} onSelect={handleTabSelect}>
                 <TabList className="flex justify-center">
-                  {Object.keys(scheduleData).map((stage) => (
+                  {Object.keys(scheduleData).map((stage, index) => (
                     <Tab
                       key={stage}
-                      className="mr-4 bg-gray-200 cursor-pointer hover:bg-gray-300 font-medium tracking-wide py-2 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white-500 transition-all hover:shadow-purple-500 active:bg-black-600">
+                      className={`m-4 px-4 py-2 bg-gray-200 cursor-pointer hover:bg-gray-300 font-medium tracking-wide sm:px-8 border border-purple-500 text-purple-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white-500 transition-all hover:shadow-purple-500 ${
+                        activeTab === index
+                          ? "bg-purple-500 text-white-500"
+                          : ""
+                      }`}>
                       {stage}
                     </Tab>
                   ))}
