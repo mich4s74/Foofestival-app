@@ -7,6 +7,7 @@ import getScrollAnimation from "../utils/getScrollAnimation";
 import ScrollAnimationWrapper from "./Layout/ScrollAnimationWrapper";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 const Events = () => {
   const scrollAnimation = (() => getScrollAnimation(), []);
@@ -194,33 +195,37 @@ const Events = () => {
               className="text-2xl mt-24 sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
               Jotunheim!{" "}
             </motion.h3>
-            {scheduleData && scheduleData.Jotunheim ? (
-              <div className="py-12 w-full px-8  mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
-                {Object.keys(scheduleData.Jotunheim).map((day) => (
-                  <div key={day}>
-                    <h2 className="text-xl font-bold mb-4">{day}</h2>
-                    {scheduleData.Jotunheim[day].map((item, index) => (
-                      <motion.div
-                        key={index}
-                        className="justify-center my-2 items-center border-2 border-gray-500 rounded-xl leading-relaxed p-4 cursor-pointer"
-                        onClick={() => router.push("/tickets")}
-                        whileHover={{
-                          scale: 1.1,
-                          transition: {
-                            duration: 0.2,
-                          },
-                        }}>
-                        <p>Start Time: {item.start}</p>
-                        <p>End Time: {item.end}</p>
-                        <p>Act: {item.act}</p>
-                      </motion.div>
-                    ))}
-                  </div>
+            <div>
+              <Tabs>
+                <TabList>
+                  {Object.keys(scheduleData).map((stage) => (
+                    <Tab key={stage}>{stage}</Tab>
+                  ))}
+                </TabList>
+
+                {Object.keys(scheduleData).map((stage) => (
+                  <TabPanel key={stage}>
+                    <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
+                      {Object.keys(scheduleData[stage]).map((day) => (
+                        <div key={day}>
+                          <h2 className="text-xl font-bold mb-4">{day}</h2>
+                          {scheduleData[stage][day].map((item, index) => (
+                            <div
+                              key={index}
+                              className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
+                              onClick={() => router.push("/tickets")}>
+                              <p>Start Time: {item.start}</p>
+                              <p>End Time: {item.end}</p>
+                              <p>Act: {item.act}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  </TabPanel>
                 ))}
-              </div>
-            ) : (
-              <p>Loading schedule data...</p>
-            )}
+              </Tabs>
+            </div>
           </ScrollAnimationWrapper>
         </div>
         <div className="flex flex-col w-full my-16" id="testimoni">
