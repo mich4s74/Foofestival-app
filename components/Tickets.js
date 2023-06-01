@@ -166,7 +166,7 @@ const Tickets = () => {
           <p>Tickets</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
             <Image
-              src="./assets/regular_ticket.png"
+              src="./assets/regular_ticket.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
             />
