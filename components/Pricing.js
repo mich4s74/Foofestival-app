@@ -180,28 +180,23 @@ const Events = () => {
             <motion.h3
               variants={scrollAnimation}
               className="text-2xl sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
-              Choose a date for your festival experience!{" "}
+              See the schedule for your festival experience!{" "}
             </motion.h3>
             <motion.p
-              className="leading-normal  mx-auto my-2 w-10/12 sm:w-7/12 lg:w-6/12"
+              className="leading-normal  mx-auto my-2 w-10/12 sm:w-7/12 lg:w-6/12 mb-12"
               variants={scrollAnimation}>
               Pick your date from the Festival Schedule below & we'll see you at
               the party!
             </motion.p>
           </ScrollAnimationWrapper>
           <ScrollAnimationWrapper>
-            <motion.h3
-              variants={scrollAnimation}
-              className="text-2xl mb-12 mt-24 sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
-              The Schedule{" "}
-            </motion.h3>
             <div>
               <Tabs>
-                <TabList className="flex">
+                <TabList className="flex justify-center">
                   {Object.keys(scheduleData).map((stage) => (
                     <Tab
                       key={stage}
-                      className="px-4 py-2 bg-gray-200 cursor-pointer hover:bg-gray-300">
+                      className="mr-4 bg-gray-200 cursor-pointer hover:bg-gray-300 font-medium tracking-wide py-2 px-5 sm:px-8 border border-purple-500 text-purple-500 bg-white-500 outline-none rounded-l-full rounded-r-full capitalize hover:bg-purple-500 hover:text-white-500 transition-all hover:shadow-purple-500 active:bg-black-600">
                       {stage}
                     </Tab>
                   ))}
@@ -209,19 +204,25 @@ const Events = () => {
 
                 {Object.keys(scheduleData).map((stage) => (
                   <TabPanel key={stage}>
-                    <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
+                    <div className="shadow py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-center rounded-xl">
                       {Object.keys(scheduleData[stage]).map((day) => (
                         <div key={day}>
                           <h2 className="text-xl font-bold mb-4">{day}</h2>
                           {scheduleData[stage][day].map((item, index) => (
-                            <div
+                            <motion.div
                               key={index}
-                              className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                              onClick={() => router.push("/tickets")}>
+                              className="mb-4 justify-center items-center shadow rounded-xl leading-relaxed p-6 cursor-pointer"
+                              onClick={() => router.push("/tickets")}
+                              whileHover={{
+                                scale: 1.1,
+                                transition: {
+                                  duration: 0.2,
+                                },
+                              }}>
                               <p>Start Time: {item.start}</p>
                               <p>End Time: {item.end}</p>
                               <p>Act: {item.act}</p>
-                            </div>
+                            </motion.div>
                           ))}
                         </div>
                       ))}
