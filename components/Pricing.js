@@ -223,7 +223,6 @@ const Events = () => {
             )}
           </ScrollAnimationWrapper>
         </div>
-        {/* Push */} <div>Push</div>
         <div className="flex flex-col w-full my-16" id="testimoni">
           <ScrollAnimationWrapper>
             <motion.h3
