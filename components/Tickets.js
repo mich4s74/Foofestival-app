@@ -90,7 +90,6 @@ const Tickets = () => {
       const response = await fetch("http://localhost:8080/available-spots");
       const data = await response.json();
       setCampingSpots(data);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching camping spots:", error);
     }
@@ -110,6 +109,51 @@ const Tickets = () => {
     399 * tentVipQuantity;
 
   const total = subtotal + BookingFee + GreenFee;
+
+  // Reserve spot and amount of tickets
+  const reserveSpot = async () => {
+    const url = "http://localhost:8080/reserve-spot";
+    const data = {
+      area: String(selectedCampingSpot),
+      amount: Number(totalTickets), // Example value for the amount of total tickets
+    };
+
+    try {
+      const response = await fetch(url, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (response.ok) {
+        const reservationId = await response.json(); // Parse the response JSON
+        console.log("Spot reservation successful.");
+        console.log("Reservation ID:", reservationId);
+        return reservationId.id; // Return the reservationId value
+      } else {
+        console.error("Spot reservation failed.");
+        throw new Error("Spot reservation failed.");
+      }
+    } catch (error) {
+      console.error("Spot reservation failed.", error);
+      throw error;
+    }
+  };
+  // Call the reserveSpot function when needed, for example, in an event handler
+
+  const handleCheckout = async () => {
+    try {
+      const reservationId = await reserveSpot(); // Call the reserveSpot function and await the result
+      router.push(
+        `/checkout?reservationId=${reservationId}&regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}&tentRegularQuantity=${tentRegularQuantity}&tentVipQuantity=${tentVipQuantity}&BookingFee=${BookingFee}&selectedCampingSpot=${selectedCampingSpot}&GreenFee=${GreenFee}`
+      );
+    } catch (error) {
+      console.error("Spot reservation failed.", error);
+      // Handle the error or display an error message
+    }
+  };
 
   return (
     <div class="bg-gray-100 pt-20 mt-24">
@@ -402,13 +446,7 @@ const Tickets = () => {
               <p class="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <div
-            className="m-8"
-            onClick={() =>
-              router.push(
-                `/checkout?regularTicketQuantity=${regularTicketQuantity}&vipTicketQuantity=${vipTicketQuantity}&tentRegularQuantity=${tentRegularQuantity}&tentVipQuantity=${tentVipQuantity}&BookingFee=${BookingFee}&selectedCampingSpot=${selectedCampingSpot}&GreenFee=${GreenFee}`
-              )
-            }>
+          <div className="m-8" onClick={handleCheckout}>
             <ButtonPrimary>Check out</ButtonPrimary>
           </div>
         </div>
