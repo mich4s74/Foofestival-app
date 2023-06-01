@@ -6,13 +6,13 @@ import { useState, useEffect } from "react";
 
 const Tickets = () => {
   const router = useRouter();
-  const [regularTicketQuantity, setRegularTicketQuantity] = useState(0);
+  const [regularTicketQuantity, setRegularTicketQuantity] = useState(1);
   const [vipTicketQuantity, setVipTicketQuantity] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const [tentRegularQuantity, setTentRegularQuantity] = useState(0);
   const [tentVipQuantity, setTentVipQuantity] = useState(0);
   const [campingSpots, setCampingSpots] = useState([]);
-  const [selectedCampingSpot, setSelectedCampingSpot] = useState("");
+  const [selectedCampingSpot, setSelectedCampingSpot] = useState("Svartheim");
 
   // TICKETS
   useEffect(() => {
@@ -131,6 +131,7 @@ const Tickets = () => {
         const reservationId = await response.json(); // Parse the response JSON
         console.log("Spot reservation successful.");
         console.log("Reservation ID:", reservationId);
+
         return reservationId.id; // Return the reservationId value
       } else {
         console.error("Spot reservation failed.");
@@ -398,6 +399,7 @@ const Tickets = () => {
                       checked={selectedCampingSpot === spot.area}
                       onChange={() => handleCampingSpotSelection(spot.area)}
                       type="checkbox"
+                      required
                       className="w-6 h-6"
                     />
                   </li>
