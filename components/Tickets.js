@@ -255,7 +255,7 @@ const Tickets = () => {
           </div>
           <p>Add-ons</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/tent_regular.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
@@ -300,7 +300,7 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/tent_vip.jpeg"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
@@ -344,7 +344,7 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
+            <Image
               src="./assets/icon/green-love.png"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
