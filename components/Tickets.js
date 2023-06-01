@@ -165,8 +165,8 @@ const Tickets = () => {
         <div class="rounded-lg md:w-2/3">
           <p>Tickets</p>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
-              src="./assets/icon/regular_ticket.png"
+            <Image
+              src="./assets/regular_ticket.png"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
             />
@@ -209,8 +209,8 @@ const Tickets = () => {
             </div>
           </div>
           <div class="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
-            <img
-              src="./assets/icon/vip_ticket.png"
+            <Image
+              src="./assets/vip_ticket.png"
               alt="product-image"
               class="w-full rounded-lg sm:w-32"
             />
