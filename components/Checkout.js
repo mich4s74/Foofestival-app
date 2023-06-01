@@ -20,14 +20,13 @@ const Checkout = () => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const response = await fetch(
+    await fetch(
       "https://noysqwjlhgkcqjbzcpab.supabase.co/rest/v1/FooFestivalForm",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          apikey:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5veXNxd2psaGdrY3FqYnpjcGFiIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUyNTc2NzIsImV4cCI6MjAwMDgzMzY3Mn0.7inyTil_iIexxv1tHjfqBzybKxspJIFqd9kvGFHWIlw",
+          apikey: process.env.NEXT_PUBLIC_SUPABASE_API,
         },
         body: JSON.stringify(formData),
       }

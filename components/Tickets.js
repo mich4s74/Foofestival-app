@@ -387,7 +387,7 @@ const Tickets = () => {
                 Camping Spot:
               </h4>{" "}
               <ul className="mt-6 flex mr-12 gap-4">
-                {campingSpots.map((spot) => (
+                {campingSpots?.map((spot) => (
                   <li key={spot.area}>
                     {spot.area}
                     <br />
