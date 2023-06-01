@@ -195,14 +195,14 @@ const Events = () => {
               Jotunheim!{" "}
             </motion.h3>
             {scheduleData && scheduleData.Jotunheim ? (
-              <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
+              <div className="py-12 w-full px-8  mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
                 {Object.keys(scheduleData.Jotunheim).map((day) => (
                   <div key={day}>
                     <h2 className="text-xl font-bold mb-4">{day}</h2>
                     {scheduleData.Jotunheim[day].map((item, index) => (
                       <motion.div
                         key={index}
-                        className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
+                        className="justify-center my-2 items-center border-2 border-gray-500 rounded-xl leading-relaxed p-4 cursor-pointer"
                         onClick={() => router.push("/tickets")}
                         whileHover={{
                           scale: 1.1,
@@ -223,6 +223,7 @@ const Events = () => {
             )}
           </ScrollAnimationWrapper>
         </div>
+        {/* Push */} <div>Push</div>
         <div className="flex flex-col w-full my-16" id="testimoni">
           <ScrollAnimationWrapper>
             <motion.h3
