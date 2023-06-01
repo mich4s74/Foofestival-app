@@ -33,7 +33,7 @@ const Checkout = () => {
     );
 
     // Handle the response data or perform any necessary actions
-    fetch("http://localhost:8080/fullfill-reservation", {
+    fetch("https://forest-foil-wasp.glitch.me/fullfill-reservation", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -55,37 +55,6 @@ const Checkout = () => {
         console.log(data);
       });
   }
-
-  /*  async function handleCheckout() {
-    // Get the reservation ID from the URL parameter
-
-    try {
-      const response = await fetch(
-        "http://localhost:8080/fullfill-reservation",
-        {
-          mode: "no-cors",
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: {
-            id: reservationId,
-          },
-        }
-      )
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-
-      if (response.ok) {
-        console.log("Reservation fulfilled successfully");
-        //router.push("/Thank_you"); // Redirect to the thank you page
-      } else {
-        console.error("Error fulfilling the reservation");
-      }
-    } catch (error) {
-      console.error("Error fulfilling the reservation:", error);
-    }
-  } */
 
   // How many tickets and tents
 

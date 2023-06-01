@@ -87,7 +87,9 @@ const Tickets = () => {
 
   const fetchAvailableCampingSpots = async () => {
     try {
-      const response = await fetch("http://localhost:8080/available-spots");
+      const response = await fetch(
+        "https://forest-foil-wasp.glitch.me/available-spots"
+      );
       const data = await response.json();
       setCampingSpots(data);
     } catch (error) {
@@ -112,7 +114,7 @@ const Tickets = () => {
 
   // Reserve spot and amount of tickets
   const reserveSpot = async () => {
-    const url = "http://localhost:8080/reserve-spot";
+    const url = "https://forest-foil-wasp.glitch.me/reserve-spot";
     const data = {
       area: String(selectedCampingSpot),
       amount: Number(totalTickets), // Example value for the amount of total tickets

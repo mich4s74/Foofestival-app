@@ -20,7 +20,9 @@ const Events = () => {
   useEffect(() => {
     const fetchScheduleData = async () => {
       try {
-        const response = await fetch("http://localhost:8080/schedule");
+        const response = await fetch(
+          "https://forest-foil-wasp.glitch.me/schedule"
+        );
         const data = await response.json();
         console.log(data);
         setScheduleData(data);
