@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const Checkout = () => {
   const router = useRouter();
+  const { reservationId } = router.query;
+  console.log(reservationId);
   const [formData, setFormData] = useState([]);
 
   const handleInputChange = (e, index) => {
@@ -15,7 +17,7 @@ const Checkout = () => {
     setFormData(updatedFormData);
   };
 
-  const handleSubmit = async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     const response = await fetch(
@@ -32,20 +34,59 @@ const Checkout = () => {
     );
 
     // Handle the response data or perform any necessary actions
-    if (response.ok) {
-      console.log("Form submitted successfully");
-      router.push("/Thank_you"); // Redirect to the thank you page
-    } else {
-      console.error("Error submitting the form");
-    }
-  };
+    fetch("http://localhost:8080/fullfill-reservation", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: reservationId,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.message === "Reservation completed") {
+          alert(data.message);
 
-  const handleCheckout = async (e) => {
-    if (e) {
-      e.preventDefault();
+          router.push("/");
+        } else {
+          alert(data.message);
+        }
+
+        console.log(data);
+      });
+  }
+
+  /*  async function handleCheckout() {
+    // Get the reservation ID from the URL parameter
+
+    try {
+      const response = await fetch(
+        "http://localhost:8080/fullfill-reservation",
+        {
+          mode: "no-cors",
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: {
+            id: reservationId,
+          },
+        }
+      )
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+
+      if (response.ok) {
+        console.log("Reservation fulfilled successfully");
+        //router.push("/Thank_you"); // Redirect to the thank you page
+      } else {
+        console.error("Error fulfilling the reservation");
+      }
+    } catch (error) {
+      console.error("Error fulfilling the reservation:", error);
     }
-    await handleSubmit(e);
-  };
+  } */
 
   // How many tickets and tents
 
@@ -72,21 +113,21 @@ const Checkout = () => {
 
   // Calculate the subtotal based on the quantities and prices
   const subtotal =
-    regularTicketPrice * regularTickets +
-    vipTicketPrice * vipTickets +
+    regularTicketPrice * regularTicketQuantity +
+    vipTicketPrice * vipTicketQuantity +
     299 * tentRegularQuantity +
     399 * tentVipQuantity;
 
   const total = subtotal + BookingFee + GreenFee;
 
   return (
-    <div className="bg-gray-100 pt-20 mt-24">
+    <div className="bg-gray-100 pt-20 mt-24 pb-20">
       <h1 className="mb-10 text-center text-2xl font-bold">
         Fill in your information
       </h1>
       <form
         className="mx-auto max-w-5xl justify-center px-6 md:space-x-6 xl:px-0"
-        onSubmit={handleSubmit}>
+        onSubmit={(e) => handleSubmit(e)}>
         <div className="grid lg:grid-cols-3 auto-cols-max gap-6">
           {[...Array(totalTickets)].map((item, index) => (
             <div className="mb-6 rounded-lg bg-white p-6 shadow-md" key={index}>
@@ -144,50 +185,54 @@ const Checkout = () => {
             </div>
           ))}
         </div>
-        <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:w-2/3 m-auto pb-10">
+        <div className="mt-6 m-auto h-full rounded-lg bg-white p-6 shadow-md pb-10">
           <div className="mb-2 flex justify-between">
             <p className="text-gray-700">Tickets</p>
             <p className="text-gray-700">
-              {regularTicketPrice + vipTicketPrice},-
+              {regularTicketQuantity * regularTicketPrice +
+                vipTicketQuantity * vipTicketPrice}
+              ,-
             </p>
           </div>
 
           <div className="mb-2 flex justify-between">
             <p className="text-gray-700">Tents</p>
             <p className="text-gray-700">
-              {299 * tentRegularQuantity + 399 * tentVipQuantity} ,-
+              {tentRegularQuantity * 299 + tentVipQuantity * 399},-
             </p>
           </div>
+
           <div className="mb-2 flex justify-between">
             <p className="text-gray-700">Subtotal</p>
-            <p className="text-gray-700">{subtotal} ,-</p>
+            <p className="text-gray-700">{subtotal},-</p>
           </div>
-          <hr className="my-4" />
-          <div className="mb-2 flex justify-between">
-            <p className="text-gray-700">Camping Spot</p>
-            <p className="text-gray-700">{selectedCampingSpot}</p>
-          </div>
+          <hr className="mb-4 mt-4" />
+
           <div className="mb-2 flex justify-between">
             <p className="text-gray-700">Booking Fee</p>
-            <p className="text-gray-700">{BookingFee} ,-</p>
+            <p className="text-gray-700">{BookingFee},-</p>
           </div>
+
           <div className="mb-2 flex justify-between">
             <p className="text-gray-700">Green Fee</p>
-            <p className="text-gray-700">{GreenFee} ,-</p>
+            <p className="text-gray-700">{GreenFee},-</p>
           </div>
-          <hr className="my-4" />
+
           <div className="mb-2 flex justify-between">
-            <p className="text-gray-700 font-bold">Total</p>
-            <p className="text-gray-700 font-bold">{total} ,-</p>
+            <p className="text-gray-700">Camping Spot</p>
+            <p className="text-gray-700">{selectedCampingSpot},-</p>
           </div>
-          <div className="flex justify-center">
-            <ButtonPrimary
-              text="Confirm Order"
-              onClick={handleCheckout}
-              disabled={totalTickets === 0}>
-              Buy now
-            </ButtonPrimary>
+
+          <hr className="mb-4 mt-4" />
+
+          <div className="mb-2 flex justify-between">
+            <p className="font-bold">Total</p>
+            <p className="font-bold">{total},-</p>
           </div>
+        </div>
+
+        <div className="flex justify-center mt-6">
+          <ButtonPrimary type="submit">Complete Reservation</ButtonPrimary>
         </div>
       </form>
     </div>
