@@ -192,14 +192,18 @@ const Events = () => {
           <ScrollAnimationWrapper>
             <motion.h3
               variants={scrollAnimation}
-              className="text-2xl mt-24 sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
-              Jotunheim!{" "}
+              className="text-2xl mb-12 mt-24 sm:text-3xl lg:text-4xl font-medium text-black-600 leading-relaxed w-9/12 sm:w-6/12 lg:w-8/12 mx-auto">
+              The Schedule{" "}
             </motion.h3>
             <div>
               <Tabs>
-                <TabList>
+                <TabList className="flex">
                   {Object.keys(scheduleData).map((stage) => (
-                    <Tab key={stage}>{stage}</Tab>
+                    <Tab
+                      key={stage}
+                      className="px-4 py-2 bg-gray-200 cursor-pointer hover:bg-gray-300">
+                      {stage}
+                    </Tab>
                   ))}
                 </TabList>
 
