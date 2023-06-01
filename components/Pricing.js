@@ -209,7 +209,7 @@ const Events = () => {
 
                 {Object.keys(scheduleData).map((stage) => (
                   <TabPanel key={stage}>
-                    <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
+                    <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
                       {Object.keys(scheduleData[stage]).map((day) => (
                         <div key={day}>
                           <h2 className="text-xl font-bold mb-4">{day}</h2>
