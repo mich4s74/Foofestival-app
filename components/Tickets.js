@@ -116,7 +116,7 @@ const Tickets = () => {
   const reserveSpot = async () => {
     const url = "https://forest-foil-wasp.glitch.me/reserve-spot";
     const data = {
-      area: String(selectedCampingSpot),
+      area: String(selectedCampingSpot), // Example value for the selected camping spot
       amount: Number(totalTickets), // Example value for the amount of total tickets
     };
 
