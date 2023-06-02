@@ -213,25 +213,32 @@ const Events = () => {
                   ))}
                 </TabList>
 
-                {Object.keys(scheduleData).map((stage, index) => (
-                  <TabPanel key={stage}>
-                    <div className="py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 justify-center items-center border-2 border-gray-500 rounded-xl">
-                      {Object.keys(scheduleData[stage]).map((day) => (
-                        <div key={day}>
-                          <h2 className="text-xl font-bold mb-4">{day}</h2>
-                          {scheduleData[stage][day].map((item, itemIndex) => (
-                            <div
-                              key={itemIndex}
-                              className="justify-center items-center border-2 border-gray-500 rounded-xl leading-relaxed p-6 cursor-pointer"
-                              onClick={() => router.push("/tickets")}>
-                              <p>Start Time: {item.start}</p>
-                              <p>End Time: {item.end}</p>
-                              <p>Act: {item.act}</p>
-                            </div>
-                          ))}
-                        </div>
-                      ))}
-                    </div>
+                {Object.keys(scheduleData).map((stage) => (
+                  <TabPanel key={stage} className="flex flex-col">
+                    <div className="shadow py-12 w-full px-8 mt-16 grid grid-cols-1 md:grid-cols-4 gap-6 justify-center items-stretch rounded-xl">
+  {Object.keys(scheduleData[stage]).map((day) => (
+    <div key={day} className="flex flex-col">
+      <h2 className="text-xl font-bold mb-4">{day.charAt(0).toUpperCase() + day.slice(1)}</h2>
+      {scheduleData[stage][day].map((item, index) => (
+        <motion.div
+          key={index}
+          className="mb-4 justify-center items-center shadow rounded-xl leading-relaxed p-6 cursor-pointer w-74 h-46 overflow-hidden hover:shadow-purple-md"
+          onClick={() => router.push("/tickets")}
+          whileHover={{
+            scale: 1.1,
+            transition: {
+            duration: 0.2,
+            },
+          }}
+        >
+          <p className="mb-2 truncate"><b>Start Time:</b> <br />{item.start}</p>
+          <p className="mb-2 truncate"><b>End Time:</b> <br />{item.end}</p>
+          <p className="truncate"><b>Act:</b> <br />{item.act.charAt(0).toUpperCase() + item.act.slice(1)}</p>
+        </motion.div>
+      ))}
+    </div>
+  ))}
+</div>
                   </TabPanel>
                 ))}
               </Tabs>
